@@ -7,15 +7,15 @@ A buildless, responsive project page for **WiTac: Wrist-Informed Tactile Represe
 From this directory (the one containing `index.html`):
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+python3 serve.py --port 8765
 ```
 
-Open `http://127.0.0.1:8000/`. Use HTTP because the video gallery loads its manifest with `fetch`.
+Open `http://127.0.0.1:8765/`. The bundled preview server binds to `127.0.0.1` and supports HTTP byte ranges, so the native video timeline can seek without downloading the entire recording first. Use this server instead of `python -m http.server`, which ignored Range requests in the local preview environment. The gallery loads its manifest over HTTP with `fetch`.
 
 For a server-side preview on FM_SH_HHT, run the command above in the website directory, then forward the port from your own computer:
 
 ```bash
-ssh -N -L 8000:127.0.0.1:8000 FM_SH_HHT
+ssh -N -L 8765:127.0.0.1:8765 FM_SH_HHT
 ```
 
 ## Repository and publication
@@ -45,12 +45,12 @@ The twelve authors, their order, affiliation markers and equal contribution foll
 - `data/reconstructions.json` describes the four unchanged 1080p reconstruction clips from `D:/WiTac_video/assets/website_reconstruction_20261115`. Battery, USB, bowl, and cabinet clips are 4, 4, 6, and 3.2 seconds. They show GT/WiTac historical tactile changes `T(t) − T(t−8)` and masked DINO wrist features, not RGB image completion or future tactile prediction.
 - The reconstruction introduction explains the tactile history and wrist-feature panels. Standalone MP4 links and the duplicate footer note have been removed from this section; native video controls and task tabs remain available.
 - The earlier static “Reconstructing recent contact changes” module is omitted. Its underlying image file is retained as an unused asset.
-- No video files were edited during this revision. Gallery playback supports 1×, 2×, and 4×; starting a video pauses other videos. Hero playback respects reduced-motion preferences and pauses offscreen.
+- No video files were edited during this revision. The gallery offers four task buttons, defaults to battery insertion, and shows each task's success/failure pair with native playback and seeking controls. The active pair preloads metadata; separate outcome, speed, count, and direct-MP4 controls were removed. Starting a video pauses other videos. Hero playback respects reduced-motion preferences and pauses offscreen.
 
 ## Presentation and implementation
 
 The initial academic layout was informed by [SALA](https://sala-vla.github.io/). The warm paper background, larger typography, and restrained reading/progress cues in this revision were informed by [T-Rex](https://tactile-reactive-dexterous.github.io/).
 
-`index.html`, `styles.css`, and `app.js` provide the static page, responsive styling, chart switcher, task/outcome filters, and playback controls. The reading bar tracks scroll position; the four hero indicators track actual media time. Reduced-motion preferences disable decorative animation. Keep HTML table values and `resultSets` in `app.js` consistent when updating results.
+`index.html`, `styles.css`, and `app.js` provide the static page, responsive styling, chart switcher, task selection, and playback controls. `serve.py` is a dependency-free local preview helper; it is not needed by static hosting. The reading bar tracks scroll position; the four hero indicators track actual media time. Reduced-motion preferences disable decorative animation. Keep HTML table values and `resultSets` in `app.js` consistent when updating results.
 
 Preparation sources and validation records are kept outside the website in `inspection/website_revision_20261116/` and `inspection/website_analysis_charts_20261116/` in the local workspace. The latter contains the reproducible Matplotlib renderer and table provenance for the analysis charts. Manuscript files and publication visibility are managed separately.

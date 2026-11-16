@@ -177,15 +177,11 @@ tbody th { font-weight: 450; }
 .reconstruction-meta span { font-size: 13px; }
 .reconstruction-panel figcaption p { margin: 7px 0 0; }
 .reconstruction-showcase>p.figure-note { font-size: 14px; margin: 21px 0 0; }
-.gallery-toolbar { display: flex; flex-direction: column; gap: 22px; margin-top: 34px; }
+.gallery-toolbar { margin: 34px 0 30px; }
 .task-filters { display: flex; flex-wrap: wrap; gap: 8px; }
 .task-filters button { border: 1px solid #d4d2c9; background: #fafaf5; color: #5f5954; border-radius: 8px; padding: 9px 17px; font-size: 14px; line-height: 1.5; min-height: 42px; }
 .task-filters button.active { background: #353131; border-color: #353131; color: #fff; }
 .task-filters button:hover:not(.active) { background: #e6e5dc; }
-.video-selects { display: flex; gap: 26px; flex-wrap: wrap; }
-.video-selects label { font-size: 14px; color: #655e58; display: flex; align-items: center; gap: 10px; }
-.video-selects select { font-size: 14px; color: #3b3531; background: #fafaf6; border: 1px solid #d5d1c8; border-radius: 6px; padding: 8px 11px; min-height: 39px; }
-.gallery-status { font-size: 14px; color: #706962; margin: 21px 0 30px; }
 .video-group { margin-bottom: 43px; }
 .video-group:last-child { margin-bottom: 0; }
 .video-group-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 17px; }
@@ -203,9 +199,6 @@ tbody th { font-weight: 450; }
 .duration { font-size: 13px; color: #756d65; white-space: nowrap; }
 .video-info p { font-size: 15px; line-height: 1.75; color: #676058; margin: 8px 0 0; }
 .video-info p.video-policy,p.video-policy { font-size: 16px; font-weight: 650; color: #484047; margin: 8px 0 0; }
-.video-download { font-size: 13px; color: #6e655d; display: inline-block; text-decoration: underline; text-underline-offset: 3px; margin-top: 8px; }
-.video-download:hover { color: var(--accent); }
-.media-note { border-top: 1px solid #d8d7cb; padding-top: 23px; margin-top: 38px; }
 .citation-section { border-bottom: 0; padding-bottom: 80px; }
 .citation-section p { font-size: 17px; color: #655e59; margin: 0 0 21px; }
 .citation-section pre { margin: 0; background: #eeede5; border: 1px solid #dcd9d0; border-radius: 8px; padding: 28px; min-height: 115px; overflow: auto; }
@@ -322,9 +315,6 @@ tbody th { font-weight: 450; }
   .reconstruction-showcase>p.figure-note { font-size: 13px; }
   .task-filters { gap: 7px; }
   .task-filters button { font-size: 13px; padding: 8px 13px; min-height: 40px; }
-  .video-selects { gap: 16px; }
-  .video-selects label { font-size: 13px; gap: 8px; }
-  .video-selects select { font-size: 13px; padding: 8px; }
   .video-group-heading { display: block; }
   .video-group-heading h3 { margin-bottom: 6px; }
   .video-group-heading p { font-size: 13px; }

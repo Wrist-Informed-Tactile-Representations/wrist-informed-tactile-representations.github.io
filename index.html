@@ -8,8 +8,8 @@
   <meta name="author" content="Haotian He, Yiyang Chen, Congsheng Xu, Wenchao Yue, Mingze Ye, Shuai Chen, Yi Yang, Yaping Li, Haonan Wang, Weinan E, Wenzhao Lian, Zhijie Deng">
   <title>WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=analysis-compact-20261116">
-  <script src="app.js?v=analysis-motion-20261116" defer></script>
+  <link rel="stylesheet" href="styles.css?v=video-cleanup-compact-20261116">
+  <script src="app.js?v=video-cleanup-20261116" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#abstract">Skip to main content</a>
@@ -136,11 +136,10 @@
     <section id="videos" class="section container" aria-labelledby="videos-title">
       <p class="section-label">Real-robot videos</p>
       <h2 id="videos-title">WiTac and WiTac-NW in action</h2>
-      <p class="section-intro">Compare selected GR00T N1.7 rollouts across four tasks: successful examples use <strong>WiTac</strong>, and unsuccessful examples use <strong>WiTac-NW</strong>. Select a task and outcome to explore the complete recordings.</p>
-      <div class="gallery-toolbar"><div class="task-filters" aria-label="Filter videos by task"><button type="button" class="active" data-task="all" aria-pressed="true">All tasks</button><button type="button" data-task="battery" aria-pressed="false">Insert battery</button><button type="button" data-task="usb" aria-pressed="false">Reinsert USB</button><button type="button" data-task="bowl" aria-pressed="false">Wipe bowl</button><button type="button" data-task="cabinet" aria-pressed="false">Open cabinet</button></div><div class="video-selects"><label>Outcome<select id="outcome-filter"><option value="all">All outcomes</option><option value="success">Successes</option><option value="failure">Failures</option></select></label><label>Playback<select id="playback-speed"><option value="1">1× · Real time</option><option value="2">2×</option><option value="4">4×</option></select></label></div></div>
-      <p id="gallery-status" class="gallery-status" role="status">Loading videos…</p><div id="video-gallery" class="video-gallery"></div>
-      <noscript><p>Enable JavaScript to filter the gallery. Open the full videos directly:</p><ul><li><a href="assets/videos/battery-success.mp4">Battery: WiTac · success</a> · <a href="assets/videos/battery-failure.mp4">Battery: WiTac-NW · failure</a></li><li><a href="assets/videos/usb-success.mp4">USB: WiTac · success</a> · <a href="assets/videos/usb-failure.mp4">USB: WiTac-NW · failure</a></li><li><a href="assets/videos/bowl-success.mp4">Bowl: WiTac · success</a> · <a href="assets/videos/bowl-failure.mp4">Bowl: WiTac-NW · failure</a></li><li><a href="assets/videos/cabinet-success.mp4">Cabinet: WiTac · success</a> · <a href="assets/videos/cabinet-failure.mp4">Cabinet: WiTac-NW · failure</a></li></ul></noscript>
-      <p class="figure-note media-note">All clips use GR00T N1.7: success examples use WiTac and failure examples use WiTac-NW. These selected rollouts illustrate behavior; aggregate success rates are reported above. Recordings retain their complete duration; audio is omitted.</p>
+      <p class="section-intro">Compare GR00T N1.7 rollouts across four tasks: successful examples use <strong>WiTac</strong>, and unsuccessful examples use <strong>WiTac-NW</strong>. Select a task to compare the recordings.</p>
+      <div class="gallery-toolbar"><div class="task-filters" role="group" aria-label="Select video task"><button type="button" class="active" data-task="battery" aria-pressed="true" aria-controls="video-gallery">Insert battery</button><button type="button" data-task="usb" aria-pressed="false" aria-controls="video-gallery">Reinsert USB</button><button type="button" data-task="bowl" aria-pressed="false" aria-controls="video-gallery">Wipe bowl</button><button type="button" data-task="cabinet" aria-pressed="false" aria-controls="video-gallery">Open cabinet</button></div></div>
+      <div id="video-gallery" class="video-gallery"></div>
+      <noscript><p>Enable JavaScript to view the task videos.</p></noscript>
     </section>
 
     <section id="bibtex" class="section container citation-section" aria-labelledby="citation-title"><h2 id="citation-title">Citation</h2><p>The BibTeX entry will be added here.</p><pre aria-label="Citation placeholder"><code>% BibTeX coming soon.</code></pre></section>

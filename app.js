@@ -76,10 +76,7 @@ backboneButtons.forEach(button => {
 renderChart('groot');
 
 const gallery = document.querySelector('#video-gallery');
-const galleryStatus = document.querySelector('#gallery-status');
 const taskButtons = [...document.querySelectorAll('.task-filters [data-task]')];
-const outcomeFilter = document.querySelector('#outcome-filter');
-const speedSelect = document.querySelector('#playback-speed');
 const taskInfo = {
   battery: {name: 'Insert battery', description: 'Align the battery with the compartment and seat it in place.', number: '01'},
   usb: {name: 'Reinsert USB', description: 'Grasp, remove, and reinsert a USB connector.', number: '02'},
@@ -88,8 +85,7 @@ const taskInfo = {
 };
 let videos = [];
 let galleryLoaded = false;
-let selectedTask = 'all';
-let playbackSpeed = [1, 2, 4].includes(Number(speedSelect?.value)) ? Number(speedSelect.value) : 1;
+let selectedTask = 'battery';
 
 function pauseGallery(exceptVideo = null) {
   document.querySelectorAll('#video-gallery video, #reconstructions video').forEach(video => {
@@ -223,15 +219,7 @@ function formatDuration(seconds) {
 }
 
 function matchingVideos() {
-  const outcome = outcomeFilter?.value || 'all';
-  return videos.filter(video => (selectedTask === 'all' || video.task === selectedTask)
-    && (outcome === 'all' || video.outcome === outcome));
-}
-
-function updateGalleryStatus(count) {
-  if (galleryStatus) {
-    galleryStatus.textContent = `${count} of ${videos.length} videos · ${playbackSpeed}× playback · Complete recordings`;
-  }
+  return videos.filter(video => video.task === selectedTask);
 }
 
 function renderGallery() {
@@ -239,7 +227,6 @@ function renderGallery() {
   pauseGallery();
   gallery.replaceChildren();
   const shown = matchingVideos();
-  updateGalleryStatus(shown.length);
   Object.entries(taskInfo).forEach(([key, task]) => {
     const clips = shown.filter(video => video.task === key)
       .sort((a, b) => (a.outcome === 'success' ? 0 : 1) - (b.outcome === 'success' ? 0 : 1));
@@ -267,10 +254,8 @@ function renderGallery() {
       video.controls = true;
       video.muted = true;
       video.playsInline = true;
-      video.preload = 'none';
+      video.preload = 'metadata';
       video.poster = clip.poster || '';
-      video.defaultPlaybackRate = playbackSpeed;
-      video.playbackRate = playbackSpeed;
       video.setAttribute('aria-label', `${task.name}: ${clip.backbone} + ${clip.policy}, ${outcomeName.toLowerCase()} example`);
       const source = document.createElement('source');
       source.src = clip.src;
@@ -293,14 +278,13 @@ function renderGallery() {
       updateDuration();
       video.addEventListener('ratechange', updateDuration);
       video.addEventListener('loadedmetadata', () => {
-        video.playbackRate = video.defaultPlaybackRate;
         updateDuration();
       });
       meta.append(badge, duration);
       const caption = document.createElement('p');
-      caption.textContent = clip.caption || `${task.name}, selected ${outcomeName.toLowerCase()} recording.`;
+      caption.textContent = clip.caption || `${task.name}, ${outcomeName.toLowerCase()} recording.`;
       const showVideoError = () => {
-        caption.textContent = 'This video could not be loaded. Try the direct MP4 link below.';
+        caption.textContent = 'This video could not be loaded. Please reload the page and try again.';
       };
       video.addEventListener('error', showVideoError);
       source.addEventListener('error', showVideoError);
@@ -308,17 +292,10 @@ function renderGallery() {
         suspendHeroForGallery();
         pauseGallery(video);
       });
-      const link = document.createElement('a');
-      link.className = 'video-download';
-      link.href = clip.src;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = 'Open MP4 ↗';
-      link.setAttribute('aria-label', `Open ${task.name} ${outcomeName.toLowerCase()} MP4`);
       const policy = document.createElement('p');
       policy.className = 'video-policy';
       policy.textContent = `${clip.backbone} + ${clip.policy}`;
-      info.append(meta, policy, caption, link);
+      info.append(meta, policy, caption);
       card.append(video, info);
       pair.append(card);
     });
@@ -328,7 +305,7 @@ function renderGallery() {
   if (!shown.length) {
     const empty = document.createElement('p');
     empty.className = 'gallery-empty';
-    empty.textContent = 'No videos match these filters. Choose another task or outcome.';
+    empty.textContent = 'No videos are available for this task.';
     gallery.append(empty);
   }
 }
@@ -342,41 +319,12 @@ taskButtons.forEach(button => button.addEventListener('click', () => {
   });
   renderGallery();
 }));
-outcomeFilter?.addEventListener('change', renderGallery);
-speedSelect?.addEventListener('change', () => {
-  const speed = Number(speedSelect.value);
-  if (![1, 2, 4].includes(speed)) return;
-  playbackSpeed = speed;
-  document.querySelectorAll('#video-gallery video').forEach(video => {
-    video.defaultPlaybackRate = speed;
-    video.playbackRate = speed;
-  });
-  if (galleryLoaded) updateGalleryStatus(matchingVideos().length);
-});
-
 function showGalleryLoadError() {
   if (!gallery) return;
-  gallery.replaceChildren();
-  if (galleryStatus) {
-    galleryStatus.textContent = 'The video list could not load. Reload this page, or open a recording directly below.';
-  }
-  const links = document.createElement('ul');
-  links.className = 'gallery-fallback';
-  Object.entries(taskInfo).forEach(([key, task]) => {
-    const item = document.createElement('li');
-    item.append(`${task.name}: `);
-    ['success', 'failure'].forEach((outcome, index) => {
-      if (index) item.append(' · ');
-      const link = document.createElement('a');
-      link.href = `assets/videos/${key}-${outcome}.mp4`;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = outcome === 'success' ? 'WiTac · success MP4' : 'WiTac-NW · failure MP4';
-      item.append(link);
-    });
-    links.append(item);
-  });
-  gallery.append(links);
+  const message = document.createElement('p');
+  message.setAttribute('role', 'alert');
+  message.textContent = 'The video list could not load. Please reload the page and try again.';
+  gallery.replaceChildren(message);
 }
 
 if (gallery) {
