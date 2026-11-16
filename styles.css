@@ -367,7 +367,7 @@ tbody th { font-weight: 450; }
 
 
 /* Responsive plots are exported from the paper's numerical data. */
-.analysis-chart { margin: 24px 0 0; padding: 20px; border: 1px solid #ded8e5; border-radius: 10px; background: #fcfbf8; }
+.analysis-chart { width: 100%; max-width: 780px; margin: 20px auto 0; padding: 16px; border: 1px solid #ded8e5; border-radius: 10px; background: #fcfbf8; }
 .analysis-chart picture { display: block; }
 .analysis-chart picture[hidden] { display: none; }
 .analysis-chart img { display: block; width: 100%; height: auto; }
@@ -388,7 +388,7 @@ tbody th { font-weight: 450; }
 .joint-panel .analysis-chart { margin-top: 14px; }
 @media(max-width:700px) {
   .analysis-copy { padding-left: 0; }
-  .analysis-chart { padding: 10px 8px 14px; margin-top: 20px; }
+  .analysis-chart { max-width: 288px; padding: 10px 8px 12px; margin-top: 16px; }
   .analysis-chart figcaption { padding-inline: 4px; font-size: 13px; margin-top: 12px; }
   .analysis-tabs { margin-top: 22px; }
   .analysis-tabs button { font-size: 14px; padding: 8px 17px; }
