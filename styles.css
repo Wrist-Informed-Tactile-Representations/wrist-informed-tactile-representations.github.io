@@ -141,13 +141,20 @@ tbody th { font-weight: 450; }
 .experiment-subsection>p { font-size: 17px; color: #57514e; margin: 0 0 28px; }
 .reconstruction-figure { max-width: 970px; margin-inline: auto; }
 
-/* Four findings remain visible in a continuous reading order. */
+/* Native disclosures keep each finding readable with or without JavaScript. */
 .analysis-list { margin-top: 38px; border-top: 1px solid #dcd7e2; }
-.analysis-item { display: grid; grid-template-columns: 54px minmax(0,1fr); column-gap: 27px; padding-block: 34px; border-bottom: 1px solid #dcd7e2; }
+.analysis-item { border-bottom: 1px solid #dcd7e2; }
+.analysis-summary { display: grid; grid-template-columns: 54px minmax(0,1fr) 24px; align-items: center; gap: 27px; padding-block: 28px; cursor: pointer; list-style: none; border-radius: 6px; }
+.analysis-summary::-webkit-details-marker { display: none; }
+.analysis-summary::marker { content: ""; }
+.analysis-summary:hover h3 { color: var(--accent); }
+.analysis-summary h3 { margin: 0; font-size: 24px; line-height: 1.45; }
+.analysis-toggle { display: grid; place-items: center; color: var(--accent); font-size: 27px; font-weight: 400; line-height: 1; }
+.analysis-toggle::before { content: "+"; }
+.analysis-item[open] .analysis-toggle::before { content: "−"; }
 .analysis-item:last-child { border-bottom: 0; padding-bottom: 0; }
 .analysis-number { font-size: 27px; font-weight: 550; line-height: 1.5; color: #967ead; font-variant-numeric: tabular-nums; }
-.analysis-copy { min-width: 0; }
-.analysis-copy h3 { font-size: 24px; margin-bottom: 12px; }
+.analysis-copy { min-width: 0; padding: 0 0 32px 81px; }
 .analysis-copy p { margin: 0; font-size: 17px; line-height: 1.85; color: #57514f; }
 .analysis-copy p+p { margin-top: 14px; }
 .analysis-copy .analysis-metric { display: inline-block; margin-top: 17px; padding: 8px 13px; border-left: 3px solid #a88cbe; background: #e9e2ef; color: #654583; font-size: 16px; line-height: 1.7; }
@@ -299,9 +306,10 @@ tbody th { font-weight: 450; }
   .experiment-subsection { margin-top: 42px; }
   .experiment-subsection>p { font-size: 16px; }
   .analysis-list { margin-top: 31px; }
-  .analysis-item { grid-template-columns: 34px minmax(0,1fr); column-gap: 13px; padding-block: 29px; }
+  .analysis-summary { grid-template-columns: 34px minmax(0,1fr) 20px; gap: 13px; padding-block: 24px; }
+  .analysis-copy { padding: 0 0 27px 47px; }
   .analysis-number { font-size: 23px; }
-  .analysis-copy h3 { font-size: 22px; }
+  .analysis-summary h3 { font-size: 22px; }
   .analysis-copy p { font-size: 16px; }
   .analysis-copy .analysis-metric { font-size: 15px; padding: 8px 11px; }
   .analysis-figure { margin-top: 21px; }
@@ -347,7 +355,8 @@ tbody th { font-weight: 450; }
   .hero-segment { font-size: 10px; }
   h2 { font-size: 29px; }
   .section-label { font-size: 23px; }
-  .analysis-item { column-gap: 10px; grid-template-columns: 29px minmax(0,1fr); }
+  .analysis-summary { column-gap: 10px; grid-template-columns: 29px minmax(0,1fr) 18px; }
+  .analysis-copy { padding-left: 39px; }
 }
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto; }

@@ -8,7 +8,7 @@
   <meta name="author" content="Haotian He, Yiyang Chen, Congsheng Xu, Wenchao Yue, Mingze Ye, Shuai Chen, Yi Yang, Yaping Li, Haonan Wang, Weinan E, Wenzhao Lian, Zhijie Deng">
   <title>WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=revision-20261116c">
+  <link rel="stylesheet" href="styles.css?v=analysis-fold-20261116">
   <script src="app.js?v=revision-20261116b" defer></script>
 </head>
 <body>
@@ -90,28 +90,23 @@
     <section id="analysis" class="section container" aria-labelledby="analysis-title">
       <p class="section-label">Representation Analysis</p>
       <h2 id="analysis-title">What does wrist context add to touch?</h2>
-      <p class="section-intro">Four analyses examine the information retained by the frozen contact representations, from local contact geometry to the direction of a corrective action.</p>
       <div class="analysis-list">
-        <article id="analysis-1" class="analysis-item"><span class="analysis-number" aria-hidden="true">01</span><div class="analysis-copy">
-          <h3>More accurate contact reconstruction</h3>
+        <details id="analysis-1" class="analysis-item"><summary class="analysis-summary"><span class="analysis-number" aria-hidden="true">01</span><h3>More accurate contact reconstruction</h3><span class="analysis-toggle" aria-hidden="true"></span></summary><div class="analysis-copy">
           <p>Across 9,632 validation windows from 602 episodes, WiTac reconstructs contact area, intensity, and center more accurately than WiTac-NW. Wrist context helps preserve the geometry and strength of local touch.</p>
           <p class="analysis-metric"><strong>7.57% · 10.00% · 2.64%</strong> lower area, intensity, and center errors, respectively, across all validation windows.</p>
-        </div></article>
-        <article id="analysis-2" class="analysis-item"><span class="analysis-number" aria-hidden="true">02</span><div class="analysis-copy">
-          <h3>Joint readout of task context and contact state</h3>
+        </div></details>
+        <details id="analysis-2" class="analysis-item"><summary class="analysis-summary"><span class="analysis-number" aria-hidden="true">02</span><h3>Joint readout of task context and contact state</h3><span class="analysis-toggle" aria-hidden="true"></span></summary><div class="analysis-copy">
           <p>Frozen WiTac features distinguish both the task and its contact state. Across 12- and 20-class evaluations on two test splits, WiTac improves macro-F1 over wrist-only DINO and WiTac-NW. It is comparable to simple feature concatenation in three settings, with a larger gain on the 20-class confirmation split.</p>
           <figure class="analysis-figure"><a href="assets/figures/joint_context_readout.png" target="_blank" rel="noopener" aria-label="Open joint task-contact readout figure at full resolution"><img src="assets/figures/joint_context_readout.png" width="1177" height="747" loading="lazy" alt="Joint task-contact macro-F1 for DINO, WiTac-NW, concatenation, and WiTac in four evaluation settings. WiTac exceeds both single-modality baselines in every setting; its comparison with concatenation varies."></a><figcaption>Joint task–contact macro-F1 (%). Higher is better; original and confirmation denote the two test splits.</figcaption></figure>
-        </div></article>
-        <article id="analysis-3" class="analysis-item"><span class="analysis-number" aria-hidden="true">03</span><div class="analysis-copy">
-          <h3>More stable features under tactile noise</h3>
+        </div></details>
+        <details id="analysis-3" class="analysis-item"><summary class="analysis-summary"><span class="analysis-number" aria-hidden="true">03</span><h3>More stable features under tactile noise</h3><span class="analysis-toggle" aria-hidden="true"></span></summary><div class="analysis-copy">
           <p>With Gaussian noise added to tactile inputs (σ = 3 on the 8-bit intensity scale), WiTac reduces feature drift across all four tasks. GR00T N1.7 action error also falls by 7.35–22.76%; action-level gains for π<sub>0.5</sub> vary by task.</p>
           <p class="analysis-metric"><strong>35.6–44.1% lower feature drift</strong> relative to WiTac-NW, with wrist images and robot state held unchanged.</p>
-        </div></article>
-        <article id="analysis-4" class="analysis-item"><span class="analysis-number" aria-hidden="true">04</span><div class="analysis-copy">
-          <h3>Clearer action-direction readout from similar contacts</h3>
+        </div></details>
+        <details id="analysis-4" class="analysis-item"><summary class="analysis-summary"><span class="analysis-number" aria-hidden="true">04</span><h3>Clearer action-direction readout from similar contacts</h3><span class="analysis-toggle" aria-hidden="true"></span></summary><div class="analysis-copy">
           <p>Similar tactile contacts can precede different corrective motions. On 25 contact-matched test pairs per task, WiTac achieves the strongest mean directional alignment across all four tasks using equal-capacity linear probes on frozen features.</p>
           <figure class="analysis-figure"><a href="assets/figures/battery_context_case.png" target="_blank" rel="noopener" aria-label="Open action-direction readout example at full resolution"><img src="assets/figures/battery_context_case.png" width="1191" height="859" loading="lazy" alt="Two battery-insertion samples with similar tactile contacts and different joint-motion directions. WiTac readouts align with ground truth with cosine similarities of 0.865 and 0.736 for these selected samples."></a><figcaption>A selected battery-insertion pair: wrist context helps distinguish different joint-motion directions despite similar touch. Cosine similarity measures frozen-feature readout accuracy, not closed-loop task success.</figcaption></figure>
-        </div></article>
+        </div></details>
       </div>
       <div id="reconstructions" class="experiment-subsection reconstruction-showcase" aria-labelledby="reconstruction-title">
         <h3 id="reconstruction-title">Reconstruction videos across four tasks</h3>
