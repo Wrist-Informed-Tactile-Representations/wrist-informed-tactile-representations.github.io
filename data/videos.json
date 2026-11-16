@@ -12,7 +12,10 @@
       "posterTime": 30,
       "caption": "The robot aligns the battery with the holder and seats it before releasing.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     },
     {
       "id": "battery-failure",
@@ -26,7 +29,10 @@
       "posterTime": 29,
       "caption": "The robot presses the battery toward the holder, but it remains visibly misaligned when released.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac-NW",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     },
     {
       "id": "usb-success",
@@ -40,7 +46,10 @@
       "posterTime": 24,
       "caption": "The robot manipulates the USB connector while the other hand steadies the adapter, then releases after reinsertion.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     },
     {
       "id": "usb-failure",
@@ -54,7 +63,10 @@
       "posterTime": 22,
       "caption": "The robot attempts to reinsert the USB connector, which is left on the table beside the adapter.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac-NW",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     },
     {
       "id": "bowl-success",
@@ -68,7 +80,10 @@
       "posterTime": 42,
       "caption": "One hand supports the bowl while the other wipes its interior with a sponge.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     },
     {
       "id": "bowl-failure",
@@ -82,7 +97,10 @@
       "posterTime": 50,
       "caption": "The robot wipes the bowl with a sponge, but visible marks remain after it puts the bowl down.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac-NW",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     },
     {
       "id": "cabinet-success",
@@ -96,7 +114,10 @@
       "posterTime": 18,
       "caption": "The robot manipulates the key and pulls the cabinet door fully open.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     },
     {
       "id": "cabinet-failure",
@@ -110,7 +131,10 @@
       "posterTime": 12,
       "caption": "The robot manipulates the key and briefly pulls the door open before it closes again.",
       "playbackSpeed": 1,
-      "hasAudio": false
+      "hasAudio": false,
+      "backbone": "GR00T N1.7",
+      "policy": "WiTac-NW",
+      "policySource": "Confirmed by the project author on 2026-11-16."
     }
   ]
 }

@@ -8,11 +8,24 @@ const resultSets = {
 const taskNames = ['Insert battery', 'Wipe bowl', 'Reinsert USB', 'Open cabinet', 'Average'];
 const series = [
   {name: 'Base', color: 'base-color'},
-  {name: 'WiTac w/o wrist (NW)', color: 'nw-color'},
+  {name: 'WiTac-NW', color: 'nw-color'},
   {name: 'WiTac', color: 'witac-color'}
 ];
 const chart = document.querySelector('#results-chart');
 const backboneButtons = [...document.querySelectorAll('[data-backbone]')];
+function animateChart() {
+  if (!chart || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  chart.querySelectorAll('.bar-fill').forEach(fill => fill.classList.add('animate-in'));
+}
+if (chart && 'IntersectionObserver' in window) {
+  const chartObserver = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) {
+      animateChart();
+      chartObserver.disconnect();
+    }
+  }, {threshold: 0.2});
+  chartObserver.observe(chart);
+}
 
 function renderChart(backbone) {
   if (!chart || !resultSets[backbone]) return;
@@ -49,6 +62,7 @@ function renderChart(backbone) {
     group.append(bars, heading);
     chart.append(group);
   });
+  if (chart.getBoundingClientRect().top < window.innerHeight) animateChart();
   backboneButtons.forEach(button => {
     const selected = button.dataset.backbone === backbone;
     button.classList.toggle('active', selected);
@@ -137,6 +151,12 @@ function updateHeroTask() {
   const index = Math.min(3, Math.floor((heroVideo.currentTime % 32) / 8));
   const label = tasks[index] || tasks[0];
   if (heroTask.textContent !== label) heroTask.textContent = label;
+  document.querySelectorAll('.hero-segment').forEach((segment, segmentIndex) => {
+    const progress = Math.max(0, Math.min(1, ((heroVideo.currentTime % 32) - segmentIndex * 8) / 8));
+    segment.querySelector('i')?.style.setProperty('--progress', String(progress));
+    segment.classList.toggle('active', segmentIndex === index);
+    segment.classList.toggle('completed', progress === 1);
+  });
 }
 
 if (heroVideo) {
@@ -251,7 +271,7 @@ function renderGallery() {
       video.poster = clip.poster || '';
       video.defaultPlaybackRate = playbackSpeed;
       video.playbackRate = playbackSpeed;
-      video.setAttribute('aria-label', `${task.name}: selected ${outcomeName.toLowerCase()} example`);
+      video.setAttribute('aria-label', `${task.name}: ${clip.backbone} + ${clip.policy}, ${outcomeName.toLowerCase()} example`);
       const source = document.createElement('source');
       source.src = clip.src;
       source.type = 'video/mp4';
@@ -295,7 +315,10 @@ function renderGallery() {
       link.rel = 'noopener';
       link.textContent = 'Open MP4 ↗';
       link.setAttribute('aria-label', `Open ${task.name} ${outcomeName.toLowerCase()} MP4`);
-      info.append(meta, caption, link);
+      const policy = document.createElement('p');
+      policy.className = 'video-policy';
+      policy.textContent = `${clip.backbone} + ${clip.policy}`;
+      info.append(meta, policy, caption, link);
       card.append(video, info);
       pair.append(card);
     });
@@ -324,7 +347,7 @@ speedSelect?.addEventListener('change', () => {
   const speed = Number(speedSelect.value);
   if (![1, 2, 4].includes(speed)) return;
   playbackSpeed = speed;
-  document.querySelectorAll('#video-gallery video, #reconstructions video').forEach(video => {
+  document.querySelectorAll('#video-gallery video').forEach(video => {
     video.defaultPlaybackRate = speed;
     video.playbackRate = speed;
   });
@@ -348,7 +371,7 @@ function showGalleryLoadError() {
       link.href = `assets/videos/${key}-${outcome}.mp4`;
       link.target = '_blank';
       link.rel = 'noopener';
-      link.textContent = outcome === 'success' ? 'Success MP4' : 'Failure MP4';
+      link.textContent = outcome === 'success' ? 'WiTac · success MP4' : 'WiTac-NW · failure MP4';
       item.append(link);
     });
     links.append(item);
@@ -357,7 +380,7 @@ function showGalleryLoadError() {
 }
 
 if (gallery) {
-  fetch('data/videos.json')
+  fetch('data/videos.json?v=revision-20261116')
     .then(response => {
       if (!response.ok) throw new Error('Video manifest unavailable');
       return response.json();
@@ -367,6 +390,7 @@ if (gallery) {
       if (!Array.isArray(entries) || !entries.length || entries.some(clip => !clip
         || !Object.prototype.hasOwnProperty.call(taskInfo, clip.task)
         || !['success', 'failure'].includes(clip.outcome)
+        || !['WiTac', 'WiTac-NW'].includes(clip.policy) || clip.backbone !== 'GR00T N1.7'
         || typeof clip.src !== 'string' || !clip.src
         || !Number.isFinite(clip.duration) || clip.duration <= 0)) {
         throw new Error('Invalid video manifest');
@@ -448,3 +472,20 @@ if (reconstructionButtons.length) {
   });
   selectReconstruction(reconstructionButtons[0].dataset.reconstruction);
 }
+
+// A quiet reading cue; scroll updates are limited to one per animation frame.
+const readingProgress = document.querySelector('#reading-progress-fill');
+let readingFrame = 0;
+function updateReadingProgress() {
+  readingFrame = 0;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? Math.max(0, Math.min(1, window.scrollY / maxScroll)) : 0;
+  readingProgress?.style.setProperty('--progress', String(progress));
+}
+function scheduleReadingProgress() {
+  if (!readingFrame) readingFrame = window.requestAnimationFrame(updateReadingProgress);
+}
+window.addEventListener('scroll', scheduleReadingProgress, {passive: true});
+window.addEventListener('resize', scheduleReadingProgress, {passive: true});
+if ('ResizeObserver' in window) new ResizeObserver(scheduleReadingProgress).observe(document.body);
+updateReadingProgress();

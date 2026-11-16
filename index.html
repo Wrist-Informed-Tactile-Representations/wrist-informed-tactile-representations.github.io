@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f6f6ef">
   <meta name="description" content="WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation. A pretrained encoder that grounds fingertip touch in wrist visual context.">
   <meta name="author" content="Haotian He, Yiyang Chen, Congsheng Xu, Wenchao Yue, Mingze Ye, Shuai Chen, Yi Yang, Yaping Li, Haonan Wang, Weinan E, Wenzhao Lian, Zhijie Deng">
   <title>WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=reconstruction-20261115">
-  <script src="app.js?v=reconstruction-20261115" defer></script>
+  <link rel="stylesheet" href="styles.css?v=revision-20261116c">
+  <script src="app.js?v=revision-20261116b" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#abstract">Skip to main content</a>
   <header class="site-header">
     <nav aria-label="Sections">
-      <a href="#abstract">Abstract</a><a href="#insight">Insight</a><a href="#method">Method</a><a href="#results">Experiments</a><a href="#videos">Videos</a><a href="#bibtex">Citation</a>
+      <a href="#abstract">Abstract</a><a href="#insight">Insight</a><a href="#method">Method</a><a href="#results">Experiments</a><a href="#analysis">Analysis</a><a href="#videos">Videos</a><a href="#bibtex">Citation</a>
     </nav>
+    <div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
   </header>
   <main>
     <section id="top" class="paper-header" aria-labelledby="paper-title">
@@ -32,39 +33,38 @@
         <div class="affiliations" aria-label="Affiliations">
           <p><span><sup>1</sup> Sharpa Robotics</span><span><sup>2</sup> PKU</span><span><sup>3</sup> SJTU</span><span><sup>4</sup> ShanghaiTech</span><span><sup>5</sup> CUHK</span></p>
         </div>
-        <p class="contribution"><sup>*</sup> Equal contribution<br>Correspondence: <a href="mailto:zhijied@sjtu.edu.cn">zhijied@sjtu.edu.cn</a></p>
+        <p class="contribution"><sup>*</sup> Equal contribution</p>
         <div class="paper-links">
-          <a class="paper-link primary" href="assets/papers/witac-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Paper</a>
-          <a class="paper-link" href="assets/papers/witac-supplementary.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM9 8h6M9 12h6M9 16h4"/></svg>Supplementary</a>
-          <a class="paper-link" href="#videos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>Videos</a>
+          <a class="paper-link primary" href="assets/papers/witac-paper.pdf?v=revision-20261116" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Paper</a>
           <a class="paper-link" href="#bibtex"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-4 5 4 5m8-10 4 5-4 5M13 5l-2 14"/></svg>BibTeX</a>
         </div>
       </div>
+      <div class="hero-timeline" aria-hidden="true"><span class="hero-segment"><i></i><span>01 · Battery</span></span><span class="hero-segment"><i></i><span>02 · USB</span></span><span class="hero-segment"><i></i><span>03 · Bowl</span></span><span class="hero-segment"><i></i><span>04 · Cabinet</span></span></div>
       <div class="background-controls"><p><span id="hero-task">Insert battery</span><span class="separator">·</span>Selected clips · 1× speed</p><button id="hero-toggle" type="button" aria-label="Pause background video">Pause video</button></div>
     </section>
 
     <section id="abstract" class="section abstract-section container" aria-labelledby="abstract-title">
       <h2 id="abstract-title" class="centered-title">Abstract</h2>
       <div class="abstract-text">
-        <p>Similar tactile contacts can call for different corrections depending on the configuration of the hand, object, and target. Rather than supplying touch and wrist vision separately, fusing them before policy injection better grounds tactile features in visual context, yielding more accurate contact representations. We introduce <strong>Wrist-Informed Tactile Representations (WiTac)</strong>, a pretrained encoder that learns such representations before action generation. Pretrained on nearly 300 hours of SharpaDex data, WiTac deeply fuses tactile signals with hand motion and wrist views into a comprehensive contact representation. Conditioning downstream VLA policies (GR00T N1.7 and π<sub>0.5</sub>) on WiTac improves average task success over vision-only base policies across four contact-rich manipulation tasks by <strong>28.8% and 15.0%</strong>, respectively, and outperforms a wrist-free tactile encoder by 18.8% and 7.5%. Offline analyses further show that incorporating wrist vision yields more accurate contact descriptors, stronger joint task–contact discrimination, and greater feature stability under tactile noise.</p>
+        <p>Similar tactile contacts can call for different corrections depending on the configuration of the hand, object and target. Rather than supplying touch and wrist vision separately, fusing them before policy injection better grounds tactile features in visual context, yielding more accurate contact representations. We introduce <strong>Wrist-Informed Tactile Representations (WiTac)</strong>, a pretrained encoder that learns such representations before action generation. Pretrained on nearly 300 hours of SharpaDex data, WiTac deeply fuses tactile signals with hand motion and wrist views into a comprehensive contact representation. Conditioning downstream VLA policies (GR00T N1.7 and π<sub>0.5</sub>) on WiTac substantially improves task success over vision-only base policies across four contact-rich manipulation tasks (<strong>+28.8% and +15.0%</strong> on average), and further outperforms WiTac-NW by 18.8% and 7.5%, respectively. Offline analyses further show that incorporating wrist vision yields more accurate contact descriptors, stronger joint task–contact discrimination, greater feature stability under tactile noise, and clearer action-direction readout from similar contacts.</p>
       </div>
     </section>
 
     <section id="insight" class="section container" aria-labelledby="insight-title">
       <p class="section-label">Insight</p>
       <h2 id="insight-title">Wrist context resolves ambiguity in fingertip contact</h2>
-      <p class="section-intro">Touch describes local contact. Wrist vision reveals how the hand, object, and target are arranged. <strong>Fusing them before action generation makes the contact representation sensitive to both.</strong></p>
-      <figure class="paper-figure teaser-figure"><a href="assets/figures/teaser_pptx.png" target="_blank" rel="noopener" aria-label="Open teaser figure at full resolution"><img src="assets/figures/teaser_pptx.png" width="2589" height="1057" loading="lazy" alt="WiTac is pretrained on SharpaDex and conditions a robot policy. A conceptual battery example illustrates alignment ambiguity and wrist context; four evaluation tasks and their success rates appear on the right."></a><figcaption><strong>Wrist context complements fingertip contact.</strong> WiTac is pretrained on SharpaDex v1.0 and conditions downstream policies. The battery-insertion illustration shows how wrist context helps resolve alignment ambiguity during contact; the right panel summarizes the evaluation tasks and GR00T N1.7 results.</figcaption></figure>
-      <div class="insight-columns"><div><h3>Why touch alone is ambiguous</h3><p>Similar fingertip deformations may occur with different object orientations or target alignments. Local contact information does not fully specify the correction needed to complete the task.</p></div><div><h3>Why fuse before policy injection?</h3><p>WiTac lets tactile tokens query wrist visual features, so each finger’s contact is represented together with its surrounding spatial context before it reaches the action expert.</p></div></div>
+      <p class="section-intro">Touch describes local contact. Wrist vision reveals how the hand, object, and target are arranged. <strong>Fusing them before policy injection grounds tactile features in visual context, yielding contact representations with more explicit spatial information.</strong></p>
+      <figure class="paper-figure teaser-figure"><a href="assets/figures/teaser_pptx.png?v=revision-20261116" target="_blank" rel="noopener" aria-label="Open teaser figure at full resolution"><img src="assets/figures/teaser_pptx.png?v=revision-20261116" width="2330" height="951" loading="lazy" alt="WiTac is pretrained on SharpaDex and conditions a robot policy. A conceptual battery example illustrates alignment ambiguity and wrist context; four evaluation tasks and their success rates appear on the right."></a><figcaption><strong>Wrist context complements fingertip contact.</strong> WiTac is pretrained on SharpaDex v1.0 and conditions downstream policies. The battery-insertion illustration shows how wrist context helps resolve alignment ambiguity during contact; the right panel summarizes the evaluation tasks and GR00T N1.7 results.</figcaption></figure>
+      <div class="insight-columns"><div><h3>Why is touch alone ambiguous?</h3><p>Similar fingertip deformations may occur with different object orientations or target alignments. Local contact information does not fully specify the correction needed to complete the task.</p></div><div><h3>Why fuse before policy injection?</h3><p>WiTac lets tactile tokens query wrist visual features, so each finger’s contact is represented together with its surrounding spatial context before it reaches the action expert.</p></div></div>
     </section>
 
     <section id="method" class="section container" aria-labelledby="method-title">
       <p class="section-label">Method</p>
       <h2 id="method-title">Learning wrist-informed contact tokens</h2>
       <p class="section-intro">WiTac combines tactile histories, hand kinematics, and wrist images into ten finger-level tokens. The encoder is pretrained through complementary self-supervised objectives, then frozen to condition a VLA policy.</p>
-      <figure class="paper-figure method-figure"><a href="assets/figures/method_overview_pptx.png" target="_blank" rel="noopener" aria-label="Open WiTac architecture figure at full resolution"><img src="assets/figures/method_overview_pptx.png" width="3707" height="1589" loading="lazy" alt="WiTac architecture in three parts: (a) state-conditioned tactile histories query wrist features; (b) five objectives pretrain contact tokens; (c) frozen contact tokens condition the VLA action expert through gated cross-attention."></a><figcaption><strong>WiTac learns contact tokens before policy injection.</strong> <strong>(a)</strong> State-conditioned tactile histories query wrist features to form contact tokens. <strong>(b)</strong> Pretraining-only heads supervise contact state, deformation and fingertip-motion histories, conditional visual recovery, and action-conditioned wrench responses. <strong>(c)</strong> Tokens from the frozen encoder condition the action expert through gated cross-attention.</figcaption></figure>
+      <figure class="paper-figure method-figure"><a href="assets/figures/method_overview_pptx.png?v=revision-20261116" target="_blank" rel="noopener" aria-label="Open WiTac architecture figure at full resolution"><img src="assets/figures/method_overview_pptx.png?v=revision-20261116" width="2318" height="994" loading="lazy" alt="WiTac architecture in three parts: (a) state-conditioned tactile histories query wrist features; (b) five objectives pretrain contact tokens; (c) frozen contact tokens condition the VLA action expert through gated cross-attention."></a></figure>
       <div class="method-explanation">
-        <article><h3><span>(a)</span> Contact encoding in wrist context</h3><p>An eight-frame tactile history is encoded for each of the ten fingers. Wrist-relative fingertip poses and robot state anchor these tactile features spatially. Finger tokens first interact with one another, then query patch features from both wrist cameras, producing <strong>ten 768-dimensional contact tokens</strong>.</p></article>
+        <article><h3><span>(a)</span> Contact encoding in wrist context</h3><p>An eight-frame tactile history is encoded for each of the ten fingers. Wrist-relative fingertip poses and robot state anchor these tactile features spatially. Finger tokens first interact with one another, then query patch features from both wrist cameras, producing <strong>ten finger-level contact tokens</strong>.</p></article>
         <article><h3><span>(b)</span> Pretraining preserves touch and visual context</h3><p>Five objectives in three groups train the shared representation on nearly 300 hours of SharpaDex data. The DINOv3 visual backbone remains frozen, while the tactile encoders and fusion blocks are optimized jointly.</p><ul><li><strong>Contact state and history:</strong> reconstruct contact descriptors, recent deformation changes, and fingertip-motion histories.</li><li><strong>Conditional visual recovery:</strong> recover masked wrist-image features through the contact-token bottleneck.</li><li><strong>Physical response:</strong> predict future fingertip wrench changes conditioned on an action prefix, only during pretraining.</li></ul></article>
         <article><h3><span>(c)</span> Gated injection into the action expert</h3><p>The pretrained WiTac encoder is frozen for policy learning. Selected action blocks attend to the contact tokens through a learned gate. The same interface supports <strong>GR00T N1.7 and π<sub>0.5</sub></strong>, preserving each policy’s native visual, language, and state inputs. Pretraining prediction heads are removed for inference.</p></article>
       </div>
@@ -76,16 +76,43 @@
       <p class="section-intro">We evaluate battery insertion, bowl wiping, USB reinsertion, and cabinet opening, with <strong>20 trials per method per task</strong>. WiTac improves average success from 37.5% to 66.3% with GR00T N1.7, and from 43.8% to 58.8% with π<sub>0.5</sub>.</p>
       <div class="results-block">
         <div class="chart-toolbar"><div><h3>Closed-loop task success rates (%)</h3><p>Higher is better. Average is the unweighted mean across four tasks.</p></div><div class="segmented" aria-label="Select policy backbone"><button type="button" class="active" data-backbone="groot" aria-pressed="true">GR00T N1.7</button><button type="button" data-backbone="pi05" aria-pressed="false">π<sub>0.5</sub></button></div></div>
-        <div class="chart-legend"><span><i class="base-color"></i>Base policy</span><span><i class="nw-color"></i>WiTac w/o wrist (NW)</span><span><i class="witac-color"></i>WiTac</span></div>
+        <div class="chart-legend"><span><i class="base-color"></i>Base policy</span><span><i class="nw-color"></i>WiTac-NW</span><span><i class="witac-color"></i>WiTac</span></div>
         <div id="results-chart" class="results-chart" aria-live="polite"></div>
-        <p class="figure-note"><strong>NW removes wrist fusion from the contact encoder.</strong> Its downstream VLA still receives its native visual inputs. The displayed averages and gains follow the manuscript’s rounding.</p>
+        <p class="figure-note"><strong>WiTac-NW removes wrist fusion from the contact encoder.</strong> Its downstream VLA still receives its native visual inputs. The displayed averages and gains follow the manuscript’s rounding.</p>
       </div>
       <details class="full-results"><summary>Full comparison with all reported baselines</summary><div class="table-scroll"><table><caption>Closed-loop success rates (%)</caption><thead><tr><th scope="col">Policy</th><th scope="col">Insert battery</th><th scope="col">Wipe bowl</th><th scope="col">Reinsert USB</th><th scope="col">Open cabinet</th><th scope="col">Average</th></tr></thead><tbody>
         <tr><th scope="row">FTP-1</th><td>40</td><td>55</td><td>5</td><td>60</td><td>40.0</td></tr><tr><th scope="row">T-Rex</th><td>45</td><td>65</td><td>15</td><td>75</td><td>50.0</td></tr>
-        <tr class="group-start"><th scope="row">GR00T N1.7</th><td>30</td><td>40</td><td>10</td><td>70</td><td>37.5</td></tr><tr><th scope="row">+ WiTac w/o wrist</th><td>45</td><td>60</td><td>5</td><td>80</td><td>47.5</td></tr><tr><th scope="row">+ VT-MUSE joint representation</th><td>40</td><td>70</td><td>15</td><td>75</td><td>50.0</td></tr><tr class="ours"><th scope="row">+ WiTac</th><td>55</td><td>80</td><td>40</td><td>90</td><td>66.3</td></tr>
-        <tr class="group-start"><th scope="row">π<sub>0.5</sub></th><td>55</td><td>65</td><td>10</td><td>45</td><td>43.8</td></tr><tr><th scope="row">+ WiTac w/o wrist</th><td>60</td><td>65</td><td>15</td><td>65</td><td>51.3</td></tr><tr class="ours"><th scope="row">+ WiTac</th><td>70</td><td>75</td><td>20</td><td>70</td><td>58.8</td></tr>
+        <tr class="group-start"><th scope="row">GR00T N1.7</th><td>30</td><td>40</td><td>10</td><td>70</td><td>37.5</td></tr><tr><th scope="row">+ WiTac-NW</th><td>45</td><td>60</td><td>5</td><td>80</td><td>47.5</td></tr><tr><th scope="row">+ VT-MUSE joint representation</th><td>40</td><td>70</td><td>15</td><td>75</td><td>50.0</td></tr><tr class="ours"><th scope="row">+ WiTac</th><td>55</td><td>80</td><td>40</td><td>90</td><td>66.3</td></tr>
+        <tr class="group-start"><th scope="row">π<sub>0.5</sub></th><td>55</td><td>65</td><td>10</td><td>45</td><td>43.8</td></tr><tr><th scope="row">+ WiTac-NW</th><td>60</td><td>65</td><td>15</td><td>65</td><td>51.3</td></tr><tr class="ours"><th scope="row">+ WiTac</th><td>70</td><td>75</td><td>20</td><td>70</td><td>58.8</td></tr>
       </tbody></table></div></details>
-      <div class="experiment-subsection"><h3>Reconstructing recent contact changes</h3><p>Offline analyses examine what the learned tokens preserve. These selected examples compare ground truth, WiTac without wrist fusion, and WiTac on historical tactile changes at multiple temporal offsets.</p><figure class="paper-figure reconstruction-figure"><a href="assets/figures/tactile_reconstruction_comparison.png" target="_blank" rel="noopener" aria-label="Open tactile reconstruction comparison at full resolution"><img src="assets/figures/tactile_reconstruction_comparison.png" width="4290" height="2220" loading="lazy" alt="Selected USB reinsertion and cabinet opening tactile reconstructions: ground truth, WiTac without wrist, and WiTac for past-frame offsets 4, 8, and 14 using the same color scale."></a><figcaption><strong>Historical tactile reconstruction.</strong> The target is T(t) − T(t−k), for past-frame offsets k = 4, 8, 14. These selected offline examples complement the aggregate evaluation; they do not represent future tactile prediction or autonomous task-success measurements.</figcaption></figure></div>
+    </section>
+
+    <section id="analysis" class="section container" aria-labelledby="analysis-title">
+      <p class="section-label">Representation Analysis</p>
+      <h2 id="analysis-title">What does wrist context add to touch?</h2>
+      <p class="section-intro">Four analyses examine the information retained by the frozen contact representations, from local contact geometry to the direction of a corrective action.</p>
+      <div class="analysis-list">
+        <article id="analysis-1" class="analysis-item"><span class="analysis-number" aria-hidden="true">01</span><div class="analysis-copy">
+          <h3>More accurate contact reconstruction</h3>
+          <p>Across 9,632 validation windows from 602 episodes, WiTac reconstructs contact area, intensity, and center more accurately than WiTac-NW. Wrist context helps preserve the geometry and strength of local touch.</p>
+          <p class="analysis-metric"><strong>7.57% · 10.00% · 2.64%</strong> lower area, intensity, and center errors, respectively, across all validation windows.</p>
+        </div></article>
+        <article id="analysis-2" class="analysis-item"><span class="analysis-number" aria-hidden="true">02</span><div class="analysis-copy">
+          <h3>Joint readout of task context and contact state</h3>
+          <p>Frozen WiTac features distinguish both the task and its contact state. Across 12- and 20-class evaluations on two test splits, WiTac improves macro-F1 over wrist-only DINO and WiTac-NW. It is comparable to simple feature concatenation in three settings, with a larger gain on the 20-class confirmation split.</p>
+          <figure class="analysis-figure"><a href="assets/figures/joint_context_readout.png" target="_blank" rel="noopener" aria-label="Open joint task-contact readout figure at full resolution"><img src="assets/figures/joint_context_readout.png" width="1177" height="747" loading="lazy" alt="Joint task-contact macro-F1 for DINO, WiTac-NW, concatenation, and WiTac in four evaluation settings. WiTac exceeds both single-modality baselines in every setting; its comparison with concatenation varies."></a><figcaption>Joint task–contact macro-F1 (%). Higher is better; original and confirmation denote the two test splits.</figcaption></figure>
+        </div></article>
+        <article id="analysis-3" class="analysis-item"><span class="analysis-number" aria-hidden="true">03</span><div class="analysis-copy">
+          <h3>More stable features under tactile noise</h3>
+          <p>With Gaussian noise added to tactile inputs (σ = 3 on the 8-bit intensity scale), WiTac reduces feature drift across all four tasks. GR00T N1.7 action error also falls by 7.35–22.76%; action-level gains for π<sub>0.5</sub> vary by task.</p>
+          <p class="analysis-metric"><strong>35.6–44.1% lower feature drift</strong> relative to WiTac-NW, with wrist images and robot state held unchanged.</p>
+        </div></article>
+        <article id="analysis-4" class="analysis-item"><span class="analysis-number" aria-hidden="true">04</span><div class="analysis-copy">
+          <h3>Clearer action-direction readout from similar contacts</h3>
+          <p>Similar tactile contacts can precede different corrective motions. On 25 contact-matched test pairs per task, WiTac achieves the strongest mean directional alignment across all four tasks using equal-capacity linear probes on frozen features.</p>
+          <figure class="analysis-figure"><a href="assets/figures/battery_context_case.png" target="_blank" rel="noopener" aria-label="Open action-direction readout example at full resolution"><img src="assets/figures/battery_context_case.png" width="1191" height="859" loading="lazy" alt="Two battery-insertion samples with similar tactile contacts and different joint-motion directions. WiTac readouts align with ground truth with cosine similarities of 0.865 and 0.736 for these selected samples."></a><figcaption>A selected battery-insertion pair: wrist context helps distinguish different joint-motion directions despite similar touch. Cosine similarity measures frozen-feature readout accuracy, not closed-loop task success.</figcaption></figure>
+        </div></article>
+      </div>
       <div id="reconstructions" class="experiment-subsection reconstruction-showcase" aria-labelledby="reconstruction-title">
         <h3 id="reconstruction-title">Reconstruction videos across four tasks</h3>
         <p>Watch synchronized camera views, wrist-feature reconstruction, and ten-finger tactile history. Each clip pairs ground truth (GT) with WiTac. Select a task, then press play; use fullscreen to inspect the details.</p>
@@ -112,12 +139,12 @@
 
     <section id="videos" class="section container" aria-labelledby="videos-title">
       <p class="section-label">Real-robot videos</p>
-      <h2 id="videos-title">Success and failure examples across four tasks</h2>
-      <p class="section-intro">Watch the complete interaction, including unsuccessful attempts. Select a task and outcome to explore the eight recordings.</p>
+      <h2 id="videos-title">WiTac and WiTac-NW in action</h2>
+      <p class="section-intro">Compare selected GR00T N1.7 rollouts across four tasks: successful examples use <strong>WiTac</strong>, and unsuccessful examples use <strong>WiTac-NW</strong>. Select a task and outcome to explore the complete recordings.</p>
       <div class="gallery-toolbar"><div class="task-filters" aria-label="Filter videos by task"><button type="button" class="active" data-task="all" aria-pressed="true">All tasks</button><button type="button" data-task="battery" aria-pressed="false">Insert battery</button><button type="button" data-task="usb" aria-pressed="false">Reinsert USB</button><button type="button" data-task="bowl" aria-pressed="false">Wipe bowl</button><button type="button" data-task="cabinet" aria-pressed="false">Open cabinet</button></div><div class="video-selects"><label>Outcome<select id="outcome-filter"><option value="all">All outcomes</option><option value="success">Successes</option><option value="failure">Failures</option></select></label><label>Playback<select id="playback-speed"><option value="1">1× · Real time</option><option value="2">2×</option><option value="4">4×</option></select></label></div></div>
       <p id="gallery-status" class="gallery-status" role="status">Loading videos…</p><div id="video-gallery" class="video-gallery"></div>
-      <noscript><p>Enable JavaScript to filter the gallery. Open the full videos directly:</p><ul><li><a href="assets/videos/battery-success.mp4">Battery success</a> · <a href="assets/videos/battery-failure.mp4">Battery failure</a></li><li><a href="assets/videos/usb-success.mp4">USB success</a> · <a href="assets/videos/usb-failure.mp4">USB failure</a></li><li><a href="assets/videos/bowl-success.mp4">Bowl success</a> · <a href="assets/videos/bowl-failure.mp4">Bowl failure</a></li><li><a href="assets/videos/cabinet-success.mp4">Cabinet success</a> · <a href="assets/videos/cabinet-failure.mp4">Cabinet failure</a></li></ul></noscript>
-      <p class="figure-note media-note">Outcome labels follow the source recordings. Policy identities have not been verified, so these selected clips are not a controlled comparison between methods. All eight recordings retain their complete duration; audio is omitted.</p>
+      <noscript><p>Enable JavaScript to filter the gallery. Open the full videos directly:</p><ul><li><a href="assets/videos/battery-success.mp4">Battery: WiTac · success</a> · <a href="assets/videos/battery-failure.mp4">Battery: WiTac-NW · failure</a></li><li><a href="assets/videos/usb-success.mp4">USB: WiTac · success</a> · <a href="assets/videos/usb-failure.mp4">USB: WiTac-NW · failure</a></li><li><a href="assets/videos/bowl-success.mp4">Bowl: WiTac · success</a> · <a href="assets/videos/bowl-failure.mp4">Bowl: WiTac-NW · failure</a></li><li><a href="assets/videos/cabinet-success.mp4">Cabinet: WiTac · success</a> · <a href="assets/videos/cabinet-failure.mp4">Cabinet: WiTac-NW · failure</a></li></ul></noscript>
+      <p class="figure-note media-note">All clips use GR00T N1.7: success examples use WiTac and failure examples use WiTac-NW. These selected rollouts illustrate behavior; aggregate success rates are reported above. Recordings retain their complete duration; audio is omitted.</p>
     </section>
 
     <section id="bibtex" class="section container citation-section" aria-labelledby="citation-title"><h2 id="citation-title">Citation</h2><p>The BibTeX entry will be added here.</p><pre aria-label="Citation placeholder"><code>% BibTeX coming soon.</code></pre></section>
@@ -125,4 +152,3 @@
   <footer class="site-footer"><p>WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation</p><a href="#top">Back to top ↑</a></footer>
 </body>
 </html>
-

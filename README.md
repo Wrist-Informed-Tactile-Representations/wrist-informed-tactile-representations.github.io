@@ -1,58 +1,51 @@
-# WiTac research website
+# WiTac project website
 
-A buildless, responsive research project page for **WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation**. All assets are local and all URLs are relative, including deployment under a GitHub Pages repository path.
-
-The layout follows the user-supplied [SALA project page](https://sala-vla.github.io/): a full-width video cover with centered title and authors, followed by Abstract, Insight and teaser, the WiTac method figure and explanations, Experiments, real-robot videos, and a Citation placeholder. No citation entry has been invented.
+A buildless, responsive project page for **WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation**. All assets are local and links work under a GitHub Pages repository path.
 
 ## Preview
 
-From the repository root:
+From this directory (the one containing `index.html`):
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1 --directory website
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8000/`. Use HTTP rather than opening `index.html` directly because the gallery loads `data/videos.json` with `fetch`.
+Open `http://127.0.0.1:8000/`. Use HTTP because the video gallery loads its manifest with `fetch`.
 
-For a preview running on FM_SH_HHT, run the same server command there, then forward it from your computer:
+For a server-side preview on FM_SH_HHT, run the command above in the website directory, then forward the port from your own computer:
 
 ```bash
-ssh -L 8000:127.0.0.1:8000 FM_SH_HHT
+ssh -N -L 8000:127.0.0.1:8000 FM_SH_HHT
 ```
 
-## Publish with GitHub Pages
+## Repository and publication
 
-The repository workflow `.github/workflows/witac-pages.yml` uploads **only `website/`**. It does not publish the rest of the manuscript repository.
+This site is maintained in the private `HaotianHehaha/WiTac` repository. Its future project URL is `https://haotianhehaha.github.io/WiTac/`. Repository privacy does not make a published GitHub Pages site private. Leave Pages disabled until public publication is explicitly authorized.
 
-1. Commit `website/` and `.github/workflows/witac-pages.yml` to the repository's `main` branch, then push.
-2. In repository **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**.
-3. Run **Deploy WiTac website** under Actions, or push a subsequent website change. The successful workflow reports the actual published URL.
+When public publication is approved, deploy the `main` branch root through Settings → Pages. The standalone repository has `index.html` at its root and `.nojekyll` for direct static-file serving; no build or Actions workflow is required. If publishing from the manuscript workspace instead, deploy only its `website/` directory.
 
-No npm install or build is required. The workflow is based on the [official GitHub Pages custom-workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+## Content and provenance
 
-## Contents
+The page follows this order: four-task video cover and authors; Abstract; Insight and teaser; Method; closed-loop Experiments; four Representation Analysis points and reconstruction videos; real-robot comparisons; Citation placeholder.
 
-- `index.html`, `styles.css`, `app.js`: page, responsive layout, background-video controls, chart switcher, video filters and playback-speed selector.
-- `data/videos.json`: eight source-labelled success/failure examples.
-- `assets/videos/`: complete recordings, re-encoded as H.264/yuv420p with faststart, original speed, no audio; approximately 26 MB total.
-- `assets/videos/hero-sequence.mp4`: a separate 32-second background montage, four 8-second excerpts in order: battery, USB, bowl, cabinet. Original speed, no audio; approximately 2.2 MB. Source time ranges are 30–38, 31–39, 38–46, and 14–22 seconds of their respective success recordings.
-- `assets/posters/`: real video-frame thumbnails.
-- `assets/figures/`: unchanged figures from the manuscript.
-- `assets/papers/`: copies of the current manuscript and supplement.
-- `.nojekyll`: direct static-file serving.
+The November 16, 2026 revision follows `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT (compiled 02:50 UTC), its abstract and experiments sources, and the figures referenced by that manuscript. The Paper download is the same PDF. The teaser was rendered from the current PDF because the source PNG was stale. The method, joint task–contact readout, and battery action-direction figures were also rendered from manuscript PDFs; their scientific content was not edited.
 
-Edit captions and videos in the manifest. Results are recorded in `app.js` and the full baseline table in `index.html`; update both when the manuscript's results change. Replace copied PDFs and figures when revising the manuscript.
+Website names consistently use **WiTac-NW**. This variant removes wrist fusion from the contact encoder; the downstream VLA retains its native visual inputs. Success-rate values and rounding follow the paper; the abstract displays literal `%` as requested by the author. Representation analysis distinguishes relative error/drift reductions from macro-F1 scores and direction cosine similarity. Frozen-feature probes are not closed-loop success measurements.
 
-## Evidence and labeling
+The twelve authors, their order, affiliation markers and equal contribution follow the paper. The hero shows only Paper and BibTeX links. The Citation remains a placeholder; no citation has been invented.
 
-Scientific content follows the current paper, especially `paper/sections/0_abstract.tex`, `3_method.tex`, `4_experiments.tex`, `5_conclusion.tex`, and `paper/tables/closed_loop.tex`. Success-rate gains are **percentage points**, and averages follow manuscript rounding. NW retains the VLA's native visual inputs. The reconstruction figure represents **historical tactile changes**, not future tactile prediction.
+## Videos
 
-The eight source video filenames supply task and outcome labels, but do not verify a policy identity. Accordingly, cards are labeled only by task and success/failure; the video pairs are not presented as WiTac-versus-baseline comparisons. The cabinet failure clip briefly opens the door before it closes again.
+- `data/videos.json` describes eight complete task recordings. The project author confirmed on November 16 that all success samples use **GR00T N1.7 + WiTac** and all failure samples use **GR00T N1.7 + WiTac-NW**. These are selected examples; aggregate results appear in Experiments.
+- `assets/videos/hero-sequence.mp4` is a 32-second, original-speed montage: battery 30–38 s, USB 31–39 s, bowl 38–46 s, cabinet 14–22 s from the success recordings.
+- `data/reconstructions.json` describes the four unchanged 1080p reconstruction clips from `D:/WiTac_video/assets/website_reconstruction_20261115`. Battery, USB, bowl, and cabinet clips are 4, 4, 6, and 3.2 seconds. They show GT/WiTac historical tactile changes `T(t) − T(t−8)` and masked DINO wrist features, not RGB image completion or future tactile prediction.
+- The earlier static “Reconstructing recent contact changes” module is omitted. Its underlying image file is retained as an unused asset.
+- No video files were edited during this revision. Gallery playback supports 1×, 2×, and 4×; starting a video pauses other videos. Hero playback respects reduced-motion preferences and pauses offscreen.
 
-The website author information follows page 1 of `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT, verified on 2026-11-15. Its twelve authors retain the PDF's order and affiliation markers; Haotian He and Yiyang Chen share equal contribution. Affiliations are 1 Sharpa Robotics, 2 PKU, 3 SJTU, 4 ShanghaiTech, and 5 CUHK. Correspondence: zhijied@sjtu.edu.cn. This updates only the website byline; manuscript sources and existing paper-download files are unchanged.
+## Presentation and implementation
 
-The eight complete recordings preserve source frame counts; the separate hero is explicitly a montage of selected excerpts. No experimental scene has been synthesized. Detailed local preparation and validation records are under `inspection/website_media_20261114/` and `inspection/website_redesign_20261114/` in the preparation workspace. Source recordings remain unmodified. Background playback respects reduced-motion preferences and pauses when offscreen; complete demonstration players support 1×, 2×, and 4× playback.
+The initial academic layout was informed by [SALA](https://sala-vla.github.io/). The warm paper background, larger typography, and restrained reading/progress cues in this revision were informed by [T-Rex](https://tactile-reactive-dexterous.github.io/).
 
-## Reconstruction videos
+`index.html`, `styles.css`, and `app.js` provide the static page, responsive styling, chart switcher, task/outcome filters, and playback controls. The reading bar tracks scroll position; the four hero indicators track actual media time. Reduced-motion preferences disable decorative animation. Keep HTML table values and `resultSets` in `app.js` consistent when updating results.
 
-The Experiments section includes a four-task reconstruction viewer at `#reconstructions`. The 1080p MP4s and posters are copied unchanged from `D:/WiTac_video/assets/website_reconstruction_20261115`; `data/reconstructions.json` retains their metadata. Durations are 4, 4, 6, and 3.2 seconds (battery, USB, bowl, cabinet), at original speed. Each panel compares GT and WiTac for ten-finger historical tactile changes T(t) - T(t-8) and masked wrist DINO features. Task buttons switch one full-width player at a time; playback requires a user action and pauses other page videos. Without JavaScript, all four players remain available. The eight success/failure recordings are unchanged.
+Preparation sources and validation records are kept outside the website in `inspection/website_revision_20261116/` in the local workspace. Manuscript files and publication visibility are managed separately.
