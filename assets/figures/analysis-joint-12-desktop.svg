@@ -30,7 +30,7 @@ L 0 313.2
 z
 " style="fill: none"/>
   </g>
-  <g id="axes_1">
+  <g id="axes_1" data-motion-panel="">
    <g id="patch_2">
     <path d="M 86.4 242.73 
 L 331.2 242.73 
@@ -131,7 +131,7 @@ L 331.2 73.602
 L 86.4 73.602 
 " clip-path="url(#p6e617f7feb)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="patch_3">
+   <g id="patch_3" data-motion="bar" data-motion-order="0">
     <path d="M 86.4 106.602585 
 L 261.1872 106.602585 
 L 261.1872 85.97722 
@@ -139,7 +139,7 @@ L 86.4 85.97722
 z
 " clip-path="url(#p6e617f7feb)" style="fill: #929da9"/>
    </g>
-   <g id="patch_4">
+   <g id="patch_4" data-motion="bar" data-motion-order="1">
     <path d="M 86.4 147.853317 
 L 261.82368 147.853317 
 L 261.82368 127.227951 
@@ -147,7 +147,7 @@ L 86.4 127.227951
 z
 " clip-path="url(#p6e617f7feb)" style="fill: #cc9942"/>
    </g>
-   <g id="patch_5">
+   <g id="patch_5" data-motion="bar" data-motion-order="2">
     <path d="M 86.4 189.104049 
 L 278.02944 189.104049 
 L 278.02944 168.478683 
@@ -155,7 +155,7 @@ L 86.4 168.478683
 z
 " clip-path="url(#p6e617f7feb)" style="fill: #55819b"/>
    </g>
-   <g id="patch_6">
+   <g id="patch_6" data-motion="bar" data-motion-order="3">
     <path d="M 86.4 230.35478 
 L 280.55088 230.35478 
 L 280.55088 209.729415 
@@ -163,16 +163,16 @@ L 86.4 209.729415
 z
 " clip-path="url(#p6e617f7feb)" style="fill: #7854ad"/>
    </g>
-   <g id="text_11">
+   <g id="text_11" data-motion="value" data-motion-order="0">
     <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="266.5728" y="99.666856" transform="rotate(-0 266.5728 99.666856)">71.40</text>
    </g>
-   <g id="text_12">
+   <g id="text_12" data-motion="value" data-motion-order="1">
     <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="267.20928" y="140.917587" transform="rotate(-0 267.20928 140.917587)">71.66</text>
    </g>
-   <g id="text_13">
+   <g id="text_13" data-motion="value" data-motion-order="2">
     <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="283.41504" y="182.168319" transform="rotate(-0 283.41504 182.168319)">78.28</text>
    </g>
-   <g id="text_14">
+   <g id="text_14" data-motion="value" data-motion-order="3">
     <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="285.93648" y="223.419051" transform="rotate(-0 285.93648 223.419051)">79.31</text>
    </g>
    <g id="text_15">
@@ -182,7 +182,7 @@ z
     <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="86.4" y="33.602" transform="rotate(-0 86.4 33.602)">Original split</text>
    </g>
   </g>
-  <g id="axes_2">
+  <g id="axes_2" data-motion-panel="">
    <g id="patch_7">
     <path d="M 446.4 242.73 
 L 691.2 242.73 
@@ -283,7 +283,7 @@ L 691.2 73.602
 L 446.4 73.602 
 " clip-path="url(#p52fa32f855)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="patch_8">
+   <g id="patch_8" data-motion="bar" data-motion-order="0">
     <path d="M 446.4 106.602585 
 L 625.64256 106.602585 
 L 625.64256 85.97722 
@@ -291,7 +291,7 @@ L 446.4 85.97722
 z
 " clip-path="url(#p52fa32f855)" style="fill: #929da9"/>
    </g>
-   <g id="patch_9">
+   <g id="patch_9" data-motion="bar" data-motion-order="1">
     <path d="M 446.4 147.853317 
 L 622.38672 147.853317 
 L 622.38672 127.227951 
@@ -299,7 +299,7 @@ L 446.4 127.227951
 z
 " clip-path="url(#p52fa32f855)" style="fill: #cc9942"/>
    </g>
-   <g id="patch_10">
+   <g id="patch_10" data-motion="bar" data-motion-order="2">
     <path d="M 446.4 189.104049 
 L 637.02576 189.104049 
 L 637.02576 168.478683 
@@ -307,7 +307,7 @@ L 446.4 168.478683
 z
 " clip-path="url(#p52fa32f855)" style="fill: #55819b"/>
    </g>
-   <g id="patch_11">
+   <g id="patch_11" data-motion="bar" data-motion-order="3">
     <path d="M 446.4 230.35478 
 L 636.38928 230.35478 
 L 636.38928 209.729415 
@@ -315,16 +315,16 @@ L 446.4 209.729415
 z
 " clip-path="url(#p52fa32f855)" style="fill: #7854ad"/>
    </g>
-   <g id="text_27">
+   <g id="text_27" data-motion="value" data-motion-order="0">
     <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="631.02816" y="99.666856" transform="rotate(-0 631.02816 99.666856)">73.22</text>
    </g>
-   <g id="text_28">
+   <g id="text_28" data-motion="value" data-motion-order="1">
     <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="627.77232" y="140.917587" transform="rotate(-0 627.77232 140.917587)">71.89</text>
    </g>
-   <g id="text_29">
+   <g id="text_29" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="642.41136" y="182.168319" transform="rotate(-0 642.41136 182.168319)">77.87</text>
    </g>
-   <g id="text_30">
+   <g id="text_30" data-motion="value" data-motion-order="3">
     <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="641.77488" y="223.419051" transform="rotate(-0 641.77488 223.419051)">77.61</text>
    </g>
    <g id="text_31">

@@ -8,8 +8,8 @@
   <meta name="author" content="Haotian He, Yiyang Chen, Congsheng Xu, Wenchao Yue, Mingze Ye, Shuai Chen, Yi Yang, Yaping Li, Haonan Wang, Weinan E, Wenzhao Lian, Zhijie Deng">
   <title>WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=analysis-charts-20261116">
-  <script src="app.js?v=analysis-charts-20261116" defer></script>
+  <link rel="stylesheet" href="styles.css?v=analysis-motion-20261116">
+  <script src="app.js?v=analysis-motion-20261116" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#abstract">Skip to main content</a>
@@ -112,25 +112,24 @@
       </div>
       <div id="reconstructions" class="experiment-subsection reconstruction-showcase" aria-labelledby="reconstruction-title">
         <h3 id="reconstruction-title">Reconstruction videos across four tasks</h3>
-        <p>Watch synchronized camera views, wrist-feature reconstruction, and ten-finger tactile history. Each clip pairs ground truth (GT) with WiTac. Select a task, then press play; use fullscreen to inspect the details.</p>
+        <p>Watch synchronized camera views, wrist-feature reconstruction, and ten-finger tactile history. Each clip pairs ground truth (GT) with WiTac. Tactile rows show GT and WiTac for the historical change T(t) − T(t−8), using the same fixed ±40 color scale. Wrist panels show masked DINO feature reconstruction.</p>
         <div class="reconstruction-controls" role="group" aria-label="Select reconstruction task" hidden><button type="button" data-reconstruction="battery" aria-controls="reconstruction-battery" aria-pressed="false">Battery insertion</button><button type="button" data-reconstruction="usb" aria-controls="reconstruction-usb" aria-pressed="false">USB reinsertion</button><button type="button" data-reconstruction="bowl" aria-controls="reconstruction-bowl" aria-pressed="false">Bowl wiping</button><button type="button" data-reconstruction="cabinet" aria-controls="reconstruction-cabinet" aria-pressed="false">Cabinet opening</button></div>
         <figure id="reconstruction-battery" class="reconstruction-panel">
           <video controls muted playsinline preload="none" poster="assets/posters/battery-reconstruction.jpg" aria-label="Battery insertion: GT and WiTac reconstruction"><source src="assets/videos/battery-reconstruction.mp4" type="video/mp4"></video>
-          <figcaption><div class="reconstruction-meta"><strong>Battery insertion</strong><span>4 s · 1× speed · 1080p</span></div><p>Battery transport and insertion onset with synchronized ten-finger tactile reconstruction.</p><a class="video-download" href="assets/videos/battery-reconstruction.mp4" target="_blank" rel="noopener">Open battery insertion MP4 ↗</a></figcaption>
+          <figcaption><div class="reconstruction-meta"><strong>Battery insertion</strong><span>4 s · 1× speed · 1080p</span></div><p>Battery transport and insertion onset with synchronized ten-finger tactile reconstruction.</p></figcaption>
         </figure>
         <figure id="reconstruction-usb" class="reconstruction-panel">
           <video controls muted playsinline preload="none" poster="assets/posters/usb-reconstruction.jpg" aria-label="USB reinsertion: GT and WiTac reconstruction"><source src="assets/videos/usb-reconstruction.mp4" type="video/mp4"></video>
-          <figcaption><div class="reconstruction-meta"><strong>USB reinsertion</strong><span>4 s · 1× speed · 1080p</span></div><p>Connector extraction and return with synchronized tactile reconstruction.</p><a class="video-download" href="assets/videos/usb-reconstruction.mp4" target="_blank" rel="noopener">Open usb reinsertion MP4 ↗</a></figcaption>
+          <figcaption><div class="reconstruction-meta"><strong>USB reinsertion</strong><span>4 s · 1× speed · 1080p</span></div><p>Connector extraction and return with synchronized tactile reconstruction.</p></figcaption>
         </figure>
         <figure id="reconstruction-bowl" class="reconstruction-panel">
           <video controls muted playsinline preload="none" poster="assets/posters/bowl-reconstruction.jpg" aria-label="Bowl wiping: GT and WiTac reconstruction"><source src="assets/videos/bowl-reconstruction.mp4" type="video/mp4"></video>
-          <figcaption><div class="reconstruction-meta"><strong>Bowl wiping</strong><span>6 s · 1× speed · 1080p</span></div><p>Continuous sponge-on-bowl wiping with reconstruction across both hands.</p><a class="video-download" href="assets/videos/bowl-reconstruction.mp4" target="_blank" rel="noopener">Open bowl wiping MP4 ↗</a></figcaption>
+          <figcaption><div class="reconstruction-meta"><strong>Bowl wiping</strong><span>6 s · 1× speed · 1080p</span></div><p>Continuous sponge-on-bowl wiping with reconstruction across both hands.</p></figcaption>
         </figure>
         <figure id="reconstruction-cabinet" class="reconstruction-panel">
           <video controls muted playsinline preload="none" poster="assets/posters/cabinet-reconstruction.jpg" aria-label="Cabinet opening: GT and WiTac reconstruction"><source src="assets/videos/cabinet-reconstruction.mp4" type="video/mp4"></video>
-          <figcaption><div class="reconstruction-meta"><strong>Cabinet opening</strong><span>3.2 s · 1× speed · 1080p</span></div><p>The cabinet door rotates open while fingertip contact is reconstructed.</p><a class="video-download" href="assets/videos/cabinet-reconstruction.mp4" target="_blank" rel="noopener">Open cabinet opening MP4 ↗</a></figcaption>
+          <figcaption><div class="reconstruction-meta"><strong>Cabinet opening</strong><span>3.2 s · 1× speed · 1080p</span></div><p>The cabinet door rotates open while fingertip contact is reconstructed.</p></figcaption>
         </figure>
-        <p class="figure-note"><strong>Reading the panels.</strong> Tactile rows show GT and WiTac for the historical change T(t) − T(t−8), using the same fixed ±40 color scale. Wrist panels show masked DINO feature reconstruction. These are selected offline reconstructions; residual differences in contact shape and magnitude remain visible.</p>
       </div>
     </section>
 

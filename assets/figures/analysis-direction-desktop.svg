@@ -30,7 +30,7 @@ L 0 525.6
 z
 " style="fill: none"/>
   </g>
-  <g id="axes_1">
+  <g id="axes_1" data-motion-panel="">
    <g id="patch_2">
     <path d="M 86.4 210.24 
 L 331.2 210.24 
@@ -140,7 +140,7 @@ L 331.2 183.197032
 L 86.4 57.816 
 " clip-path="url(#peec5de01f5)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="line2d_15">
+   <g id="line2d_15" data-motion="point" data-motion-order="0" data-motion-from-x="-166.80672">
     <defs>
      <path id="m1889990a6c" d="M 0 4.75 
 C 1.259715 4.75 2.468004 4.24951 3.358757 3.358757 
@@ -158,10 +158,10 @@ z
      <use xlink:href="#m1889990a6c" x="253.20672" y="84.858968" style="fill: #929da9; stroke: #929da9"/>
     </g>
    </g>
-   <g id="text_10">
+   <g id="text_10" data-motion="value" data-motion-order="0">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="261.77472" y="88.106038" transform="rotate(-0 261.77472 88.106038)">0.6814</text>
    </g>
-   <g id="line2d_16">
+   <g id="line2d_16" data-motion="point" data-motion-order="1" data-motion-from-x="-166.31712">
     <defs>
      <path id="mc0f2290354" d="M -4.75 4.75 
 L 4.75 4.75 
@@ -174,10 +174,10 @@ z
      <use xlink:href="#mc0f2290354" x="252.71712" y="134.028" style="fill: #cc9942; stroke: #cc9942; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_11">
+   <g id="text_11" data-motion="value" data-motion-order="1">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="261.28512" y="137.27507" transform="rotate(-0 261.28512 137.27507)">0.6794</text>
    </g>
-   <g id="line2d_17">
+   <g id="line2d_17" data-motion="point" data-motion-order="2" data-motion-from-x="-179.316">
     <defs>
      <path id="me06e742c02" d="M 0 6.717514 
 L 6.717514 0 
@@ -190,14 +190,14 @@ z
      <use xlink:href="#me06e742c02" x="265.716" y="183.197032" style="fill: #7854ad; stroke: #7854ad; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_12">
+   <g id="text_12" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="274.284" y="186.444103" transform="rotate(-0 274.284 186.444103)">0.7325</text>
    </g>
    <g id="text_13">
     <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="86.4" y="37.816" transform="rotate(-0 86.4 37.816)">Battery insertion</text>
    </g>
   </g>
-  <g id="axes_2">
+  <g id="axes_2" data-motion-panel="">
    <g id="patch_3">
     <path d="M 446.4 210.24 
 L 691.2 210.24 
@@ -307,35 +307,35 @@ L 691.2 183.197032
 L 446.4 57.816 
 " clip-path="url(#p888b9eba32)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="line2d_32">
+   <g id="line2d_32" data-motion="point" data-motion-order="0" data-motion-from-x="-80.31888">
     <g clip-path="url(#p888b9eba32)">
      <use xlink:href="#m1889990a6c" x="526.71888" y="84.858968" style="fill: #929da9; stroke: #929da9"/>
     </g>
    </g>
-   <g id="text_23">
+   <g id="text_23" data-motion="value" data-motion-order="0">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="535.28688" y="88.106038" transform="rotate(-0 535.28688 88.106038)">0.3281</text>
    </g>
-   <g id="line2d_33">
+   <g id="line2d_33" data-motion="point" data-motion-order="1" data-motion-from-x="-88.64208">
     <g clip-path="url(#p888b9eba32)">
      <use xlink:href="#mc0f2290354" x="535.04208" y="134.028" style="fill: #cc9942; stroke: #cc9942; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_24">
+   <g id="text_24" data-motion="value" data-motion-order="1">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="543.61008" y="137.27507" transform="rotate(-0 543.61008 137.27507)">0.3621</text>
    </g>
-   <g id="line2d_34">
+   <g id="line2d_34" data-motion="point" data-motion-order="2" data-motion-from-x="-105.1416">
     <g clip-path="url(#p888b9eba32)">
      <use xlink:href="#me06e742c02" x="551.5416" y="183.197032" style="fill: #7854ad; stroke: #7854ad; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_25">
+   <g id="text_25" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="560.1096" y="186.444103" transform="rotate(-0 560.1096 186.444103)">0.4295</text>
    </g>
    <g id="text_26">
     <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="446.4" y="37.816" transform="rotate(-0 446.4 37.816)">USB reinsertion</text>
    </g>
   </g>
-  <g id="axes_3">
+  <g id="axes_3" data-motion-panel="">
    <g id="patch_4">
     <path d="M 86.4 452.016 
 L 331.2 452.016 
@@ -445,35 +445,35 @@ L 331.2 424.973032
 L 86.4 299.592 
 " clip-path="url(#p4a0e7f82f1)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="line2d_49">
+   <g id="line2d_49" data-motion="point" data-motion-order="0" data-motion-from-x="-177.38208">
     <g clip-path="url(#p4a0e7f82f1)">
      <use xlink:href="#m1889990a6c" x="263.78208" y="326.634968" style="fill: #929da9; stroke: #929da9"/>
     </g>
    </g>
-   <g id="text_36">
+   <g id="text_36" data-motion="value" data-motion-order="0">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="272.35008" y="329.882038" transform="rotate(-0 272.35008 329.882038)">0.7246</text>
    </g>
-   <g id="line2d_50">
+   <g id="line2d_50" data-motion="point" data-motion-order="1" data-motion-from-x="-188.39808">
     <g clip-path="url(#p4a0e7f82f1)">
      <use xlink:href="#mc0f2290354" x="274.79808" y="375.804" style="fill: #cc9942; stroke: #cc9942; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_37">
+   <g id="text_37" data-motion="value" data-motion-order="1">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="283.36608" y="379.05107" transform="rotate(-0 283.36608 379.05107)">0.7696</text>
    </g>
-   <g id="line2d_51">
+   <g id="line2d_51" data-motion="point" data-motion-order="2" data-motion-from-x="-192.92688">
     <g clip-path="url(#p4a0e7f82f1)">
      <use xlink:href="#me06e742c02" x="279.32688" y="424.973032" style="fill: #7854ad; stroke: #7854ad; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_38">
+   <g id="text_38" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="287.89488" y="428.220103" transform="rotate(-0 287.89488 428.220103)">0.7881</text>
    </g>
    <g id="text_39">
     <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="86.4" y="279.592" transform="rotate(-0 86.4 279.592)">Bowl wiping</text>
    </g>
   </g>
-  <g id="axes_4">
+  <g id="axes_4" data-motion-panel="">
    <g id="patch_5">
     <path d="M 446.4 452.016 
 L 691.2 452.016 
@@ -583,28 +583,28 @@ L 691.2 424.973032
 L 446.4 299.592 
 " clip-path="url(#p54a223a50f)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="line2d_66">
+   <g id="line2d_66" data-motion="point" data-motion-order="0" data-motion-from-x="-171.18864">
     <g clip-path="url(#p54a223a50f)">
      <use xlink:href="#m1889990a6c" x="617.58864" y="326.634968" style="fill: #929da9; stroke: #929da9"/>
     </g>
    </g>
-   <g id="text_49">
+   <g id="text_49" data-motion="value" data-motion-order="0">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="626.15664" y="329.882038" transform="rotate(-0 626.15664 329.882038)">0.6993</text>
    </g>
-   <g id="line2d_67">
+   <g id="line2d_67" data-motion="point" data-motion-order="1" data-motion-from-x="-163.25712">
     <g clip-path="url(#p54a223a50f)">
      <use xlink:href="#mc0f2290354" x="609.65712" y="375.804" style="fill: #cc9942; stroke: #cc9942; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_50">
+   <g id="text_50" data-motion="value" data-motion-order="1">
     <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="618.22512" y="379.05107" transform="rotate(-0 618.22512 379.05107)">0.6669</text>
    </g>
-   <g id="line2d_68">
+   <g id="line2d_68" data-motion="point" data-motion-order="2" data-motion-from-x="-180.80928">
     <g clip-path="url(#p54a223a50f)">
      <use xlink:href="#me06e742c02" x="627.20928" y="424.973032" style="fill: #7854ad; stroke: #7854ad; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_51">
+   <g id="text_51" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="635.77728" y="428.220103" transform="rotate(-0 635.77728 428.220103)">0.7386</text>
    </g>
    <g id="text_52">

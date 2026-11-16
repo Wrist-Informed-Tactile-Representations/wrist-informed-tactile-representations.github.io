@@ -30,7 +30,7 @@ L 0 352.8
 z
 " style="fill: none"/>
   </g>
-  <g id="axes_1">
+  <g id="axes_1" data-motion-panel="">
    <g id="patch_2">
     <path d="M 19.44 250.488 
 L 242.352 250.488 
@@ -114,7 +114,7 @@ L 173.172414 17.64
 L 19.44 17.64 
 " clip-path="url(#p8eb13c1f51)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="patch_3">
+   <g id="patch_3" data-motion="bar" data-motion-order="0">
     <path d="M 19.44 74.349755 
 L 135.815437 74.349755 
 L 135.815437 51.064955 
@@ -122,7 +122,7 @@ L 19.44 51.064955
 z
 " clip-path="url(#p8eb13c1f51)" style="fill: #7854ad"/>
    </g>
-   <g id="patch_4">
+   <g id="patch_4" data-motion="bar" data-motion-order="1">
     <path d="M 19.44 149.462013 
 L 173.172414 149.462013 
 L 173.172414 126.177213 
@@ -130,7 +130,7 @@ L 19.44 126.177213
 z
 " clip-path="url(#p8eb13c1f51)" style="fill: #7854ad"/>
    </g>
-   <g id="patch_5">
+   <g id="patch_5" data-motion="bar" data-motion-order="2">
     <path d="M 19.44 224.574271 
 L 60.025357 224.574271 
 L 60.025357 201.289471 
@@ -141,19 +141,19 @@ z
    <g id="text_7">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="38.583295" transform="rotate(-0 19.44 38.583295)">Contact area</text>
    </g>
-   <g id="text_8">
+   <g id="text_8" data-motion="value" data-motion-order="0">
     <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #7854ad" x="139.19755" y="66.863605" transform="rotate(-0 139.19755 66.863605)">7.57%</text>
    </g>
    <g id="text_9">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="113.695553" transform="rotate(-0 19.44 113.695553)">Contact intensity</text>
    </g>
-   <g id="text_10">
+   <g id="text_10" data-motion="value" data-motion-order="1">
     <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #7854ad" x="176.554527" y="141.975863" transform="rotate(-0 176.554527 141.975863)">10.00%</text>
    </g>
    <g id="text_11">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="188.807811" transform="rotate(-0 19.44 188.807811)">Contact center</text>
    </g>
-   <g id="text_12">
+   <g id="text_12" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #7854ad" x="63.40747" y="217.088121" transform="rotate(-0 63.40747 217.088121)">2.64%</text>
    </g>
   </g>

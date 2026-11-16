@@ -30,7 +30,7 @@ L 0 669.6
 z
 " style="fill: none"/>
   </g>
-  <g id="axes_1">
+  <g id="axes_1" data-motion-panel="">
    <g id="patch_2">
     <path d="M 19.44 261.144 
 L 239.76 261.144 
@@ -106,7 +106,7 @@ L 239.76 77.004
 L 19.44 77.004 
 " clip-path="url(#pc7008a356f)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="patch_3">
+   <g id="patch_3" data-motion="bar" data-motion-order="0">
     <path d="M 19.44 108.960335 
 L 176.74848 108.960335 
 L 176.74848 95.999024 
@@ -114,7 +114,7 @@ L 19.44 95.999024
 z
 " clip-path="url(#pc7008a356f)" style="fill: #929da9"/>
    </g>
-   <g id="patch_4">
+   <g id="patch_4" data-motion="bar" data-motion-order="1">
     <path d="M 19.44 153.65451 
 L 177.321312 153.65451 
 L 177.321312 140.693199 
@@ -122,7 +122,7 @@ L 19.44 140.693199
 z
 " clip-path="url(#pc7008a356f)" style="fill: #cc9942"/>
    </g>
-   <g id="patch_5">
+   <g id="patch_5" data-motion="bar" data-motion-order="2">
     <path d="M 19.44 198.348684 
 L 191.906496 198.348684 
 L 191.906496 185.387374 
@@ -130,7 +130,7 @@ L 19.44 185.387374
 z
 " clip-path="url(#pc7008a356f)" style="fill: #55819b"/>
    </g>
-   <g id="patch_6">
+   <g id="patch_6" data-motion="bar" data-motion-order="3">
     <path d="M 19.44 243.042859 
 L 194.175792 243.042859 
 L 194.175792 230.081549 
@@ -141,25 +141,25 @@ z
    <g id="text_7">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="88.356269" transform="rotate(-0 19.44 88.356269)">DINO</text>
    </g>
-   <g id="text_8">
+   <g id="text_8" data-motion="value" data-motion-order="0">
     <text style="font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="181.59552" y="106.506047" transform="rotate(-0 181.59552 106.506047)">71.40</text>
    </g>
    <g id="text_9">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="133.050444" transform="rotate(-0 19.44 133.050444)">WiTac-NW</text>
    </g>
-   <g id="text_10">
+   <g id="text_10" data-motion="value" data-motion-order="1">
     <text style="font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="182.168352" y="151.200222" transform="rotate(-0 182.168352 151.200222)">71.66</text>
    </g>
    <g id="text_11">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="177.744619" transform="rotate(-0 19.44 177.744619)">Concat.</text>
    </g>
-   <g id="text_12">
+   <g id="text_12" data-motion="value" data-motion-order="2">
     <text style="font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="196.753536" y="195.894396" transform="rotate(-0 196.753536 195.894396)">78.28</text>
    </g>
    <g id="text_13">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="222.438794" transform="rotate(-0 19.44 222.438794)">WiTac</text>
    </g>
-   <g id="text_14">
+   <g id="text_14" data-motion="value" data-motion-order="3">
     <text style="font-weight: 700; font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="199.022832" y="240.588571" transform="rotate(-0 199.022832 240.588571)">79.31</text>
    </g>
    <g id="text_15">
@@ -169,7 +169,7 @@ z
     <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="35.004" transform="rotate(-0 19.44 35.004)">Original split</text>
    </g>
   </g>
-  <g id="axes_2">
+  <g id="axes_2" data-motion-panel="">
    <g id="patch_7">
     <path d="M 19.44 592.596 
 L 239.76 592.596 
@@ -245,7 +245,7 @@ L 239.76 408.456
 L 19.44 408.456 
 " clip-path="url(#p0bbe1b7037)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="patch_8">
+   <g id="patch_8" data-motion="bar" data-motion-order="0">
     <path d="M 19.44 440.412335 
 L 180.758304 440.412335 
 L 180.758304 427.451024 
@@ -253,7 +253,7 @@ L 19.44 427.451024
 z
 " clip-path="url(#p0bbe1b7037)" style="fill: #929da9"/>
    </g>
-   <g id="patch_9">
+   <g id="patch_9" data-motion="bar" data-motion-order="1">
     <path d="M 19.44 485.10651 
 L 177.828048 485.10651 
 L 177.828048 472.145199 
@@ -261,7 +261,7 @@ L 19.44 472.145199
 z
 " clip-path="url(#p0bbe1b7037)" style="fill: #cc9942"/>
    </g>
-   <g id="patch_10">
+   <g id="patch_10" data-motion="bar" data-motion-order="2">
     <path d="M 19.44 529.800684 
 L 191.003184 529.800684 
 L 191.003184 516.839374 
@@ -269,7 +269,7 @@ L 19.44 516.839374
 z
 " clip-path="url(#p0bbe1b7037)" style="fill: #55819b"/>
    </g>
-   <g id="patch_11">
+   <g id="patch_11" data-motion="bar" data-motion-order="3">
     <path d="M 19.44 574.494859 
 L 190.430352 574.494859 
 L 190.430352 561.533549 
@@ -280,25 +280,25 @@ z
    <g id="text_23">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="419.808269" transform="rotate(-0 19.44 419.808269)">DINO</text>
    </g>
-   <g id="text_24">
+   <g id="text_24" data-motion="value" data-motion-order="0">
     <text style="font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="185.605344" y="437.958047" transform="rotate(-0 185.605344 437.958047)">73.22</text>
    </g>
    <g id="text_25">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="464.502444" transform="rotate(-0 19.44 464.502444)">WiTac-NW</text>
    </g>
-   <g id="text_26">
+   <g id="text_26" data-motion="value" data-motion-order="1">
     <text style="font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="182.675088" y="482.652222" transform="rotate(-0 182.675088 482.652222)">71.89</text>
    </g>
    <g id="text_27">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="509.196619" transform="rotate(-0 19.44 509.196619)">Concat.</text>
    </g>
-   <g id="text_28">
+   <g id="text_28" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="195.850224" y="527.346396" transform="rotate(-0 195.850224 527.346396)">77.87</text>
    </g>
    <g id="text_29">
     <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="19.44" y="553.890794" transform="rotate(-0 19.44 553.890794)">WiTac</text>
    </g>
-   <g id="text_30">
+   <g id="text_30" data-motion="value" data-motion-order="3">
     <text style="font-size: 15.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #383341" x="195.277392" y="572.040571" transform="rotate(-0 195.277392 572.040571)">77.61</text>
    </g>
    <g id="text_31">

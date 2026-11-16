@@ -467,7 +467,7 @@ if (reconstructionButtons.length) {
     });
     video.addEventListener('error', () => {
       const caption = panel.querySelector('figcaption p');
-      caption.textContent = 'This video could not be loaded. Try the direct MP4 link below.';
+      caption.textContent = 'This video could not be loaded. Refresh the page and try again.';
     });
   });
   selectReconstruction(reconstructionButtons[0].dataset.reconstruction);
@@ -505,6 +505,7 @@ if (analysisTabs.length) {
       panelFor(tab).hidden = !active;
     });
     if (focus) selected.focus();
+    document.dispatchEvent(new CustomEvent('analysis-tabchange', {detail: panelFor(selected)}));
   }
   if (tablist && analysisTabs.every(panelFor)) {
     analysisTabs.forEach((tab, index) => {
@@ -528,3 +529,116 @@ if (analysisTabs.length) {
     selectAnalysisTab(analysisTabs[0]);
   }
 }
+
+// Enhance the exported plots with per-mark motion; static pictures are the fallback.
+const motionFigures = [...document.querySelectorAll('#analysis-1 .analysis-chart, #analysis-2 .analysis-chart, #analysis-4 .analysis-chart')];
+const motionPanelsPlayed = new WeakSet();
+const motionSources = new Map();
+const motionRequests = new WeakMap();
+const mobilePlots = window.matchMedia('(max-width: 600px)');
+function revealAnalysisPanel(panel) {
+  if (reducedMotion.matches || motionPanelsPlayed.has(panel)) return;
+  const box = panel.getBoundingClientRect();
+  if (!box.width || !box.height || box.bottom <= 64 || box.top >= window.innerHeight) return;
+  motionPanelsPlayed.add(panel);
+  panel.classList.add('is-revealing');
+}
+const motionObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+  entries.forEach(entry => { if (entry.isIntersecting) revealAnalysisPanel(entry.target); });
+}, {threshold: .12, rootMargin: '-64px 0px 0px 0px'}) : null;
+
+function replayAnalysisPlots(scope) {
+  scope.querySelectorAll('[data-motion-panel]').forEach(panel => {
+    panel.classList.remove('is-revealing');
+    motionPanelsPlayed.delete(panel);
+  });
+  // Commit the reset before reapplying the animation on the next frame.
+  scope.getBoundingClientRect();
+  window.requestAnimationFrame(() => {
+    scope.querySelectorAll('[data-motion-panel]').forEach(revealAnalysisPanel);
+  });
+}
+
+async function enhanceAnalysisPlot(figure, index) {
+  const picture = figure.querySelector('picture');
+  const image = picture.querySelector('img');
+  const mobileSource = picture.querySelector('source');
+  const path = mobilePlots.matches ? mobileSource.getAttribute('srcset') : image.getAttribute('src');
+  const url = new URL(path, document.baseURI);
+  url.searchParams.set('v', 'motion-20261116');
+  const request = figure.dataset.motionRequest = url.href;
+  const requestId = {};
+  motionRequests.set(figure, requestId);
+  const oldPlot = figure.querySelector('.analysis-plot-svg');
+  if (oldPlot?.dataset.source === request) return;
+  try {
+    if (!motionSources.has(request)) {
+      motionSources.set(request, fetch(request).then(response => {
+        if (!response.ok) throw new Error('Plot unavailable');
+        return response.text();
+      }).catch(error => { motionSources.delete(request); throw error; }));
+    }
+    const source = await motionSources.get(request);
+    if (motionRequests.get(figure) !== requestId) return;
+    const parsed = new DOMParser().parseFromString(source, 'image/svg+xml');
+    const root = parsed.documentElement;
+    if (root.localName !== 'svg' || parsed.querySelector('parsererror, script, foreignObject') || !root.querySelector('[data-motion-panel]')) throw new Error('Invalid plot');
+    // Each inline plot needs its own clip-path and marker IDs.
+    const prefix = `analysis-plot-${index}-`;
+    const ids = new Map([...root.querySelectorAll('[id]')].map(node => [node.id, prefix + node.id]));
+    root.querySelectorAll('*').forEach(node => {
+      [...node.attributes].forEach(attribute => {
+        let value = attribute.value.replace(/url\(#([^)]+)\)/g, (match, id) => ids.has(id) ? `url(#${ids.get(id)})` : match);
+        if (attribute.localName === 'href' && value.startsWith('#') && ids.has(value.slice(1))) value = '#' + ids.get(value.slice(1));
+        if (attribute.name === 'id') value = ids.get(value);
+        node.setAttributeNS(attribute.namespaceURI, attribute.name, value);
+      });
+    });
+    root.querySelectorAll('style').forEach(style => { style.textContent = style.textContent.replace('*{', '.analysis-plot-svg *{'); });
+    const svg = document.importNode(root, true);
+    svg.removeAttribute('width');
+    svg.removeAttribute('height');
+    svg.setAttribute('class', 'analysis-plot-svg');
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', image.alt);
+    svg.dataset.source = request;
+    svg.querySelectorAll('[data-motion]').forEach(mark => {
+      mark.style.setProperty('--analysis-delay', `${Number(mark.dataset.motionOrder) * 70}ms`);
+      if (mark.dataset.motion === 'point') mark.style.setProperty('--analysis-from-x', `${Number(mark.dataset.motionFromX)}px`);
+    });
+    const previousPlot = figure.querySelector('.analysis-plot-svg');
+    previousPlot?.querySelectorAll('[data-motion-panel]').forEach(panel => motionObserver?.unobserve(panel));
+    if (previousPlot) previousPlot.replaceWith(svg);
+    else picture.after(svg);
+    picture.hidden = true;
+    svg.querySelectorAll('[data-motion-panel]').forEach(panel => motionObserver?.observe(panel));
+    window.requestAnimationFrame(() => svg.querySelectorAll('[data-motion-panel]').forEach(revealAnalysisPanel));
+  } catch {
+    // A failed enhancement must never hide the original, accessible chart.
+    if (motionRequests.get(figure) !== requestId) return;
+    const previousPlot = figure.querySelector('.analysis-plot-svg');
+    previousPlot?.querySelectorAll('[data-motion-panel]').forEach(panel => motionObserver?.unobserve(panel));
+    previousPlot?.remove();
+    picture.hidden = false;
+  }
+}
+motionFigures.forEach(enhanceAnalysisPlot);
+mobilePlots.addEventListener('change', () => motionFigures.forEach(enhanceAnalysisPlot));
+document.querySelectorAll('.analysis-item').forEach(disclosure => {
+  disclosure.addEventListener('toggle', () => {
+    if (disclosure.open) replayAnalysisPlots(disclosure);
+    else disclosure.querySelectorAll('[data-motion-panel]').forEach(panel => {
+      panel.classList.remove('is-revealing');
+      motionPanelsPlayed.delete(panel);
+    });
+  });
+});
+document.addEventListener('analysis-tabchange', event => replayAnalysisPlots(event.detail));
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) motionFigures.forEach(figure => {
+    figure.querySelectorAll('.is-revealing').forEach(panel => panel.classList.remove('is-revealing'));
+  });
+});
+if (!motionObserver) window.addEventListener('scroll', () => {
+  motionFigures.forEach(figure => figure.querySelectorAll('[data-motion-panel]').forEach(revealAnalysisPanel));
+}, {passive: true});

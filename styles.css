@@ -369,7 +369,15 @@ tbody th { font-weight: 450; }
 /* Responsive plots are exported from the paper's numerical data. */
 .analysis-chart { margin: 24px 0 0; padding: 20px; border: 1px solid #ded8e5; border-radius: 10px; background: #fcfbf8; }
 .analysis-chart picture { display: block; }
+.analysis-chart picture[hidden] { display: none; }
 .analysis-chart img { display: block; width: 100%; height: auto; }
+.analysis-plot-svg { display: block; width: 100%; height: auto; }
+.analysis-plot-svg .is-revealing [data-motion="bar"] { transform-box: fill-box; transform-origin: left center; animation: analysis-bar-reveal .8s cubic-bezier(.2,.7,.2,1) var(--analysis-delay,0ms) both; }
+.analysis-plot-svg .is-revealing [data-motion="point"] { animation: analysis-point-reveal .8s cubic-bezier(.2,.7,.2,1) var(--analysis-delay,0ms) both; }
+.analysis-plot-svg .is-revealing [data-motion="value"] { animation: analysis-value-reveal .45s ease calc(var(--analysis-delay,0ms) + .3s) both; }
+@keyframes analysis-bar-reveal { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes analysis-point-reveal { from { transform: translateX(var(--analysis-from-x)); } to { transform: translateX(0); } }
+@keyframes analysis-value-reveal { from { opacity: 0; } to { opacity: 1; } }
 .analysis-chart figcaption { margin-top: 16px; color: #68616b; font-size: 14px; line-height: 1.8; }
 .analysis-tabs { display: inline-flex; flex-wrap: wrap; gap: 5px; padding: 4px; margin-top: 25px; background: #e7e0ed; border: 1px solid #d8cfe1; border-radius: 9px; }
 .analysis-tabs[hidden], .joint-panel[hidden] { display: none; }

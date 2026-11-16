@@ -30,7 +30,7 @@ L 0 273.6
 z
 " style="fill: none"/>
   </g>
-  <g id="axes_1">
+  <g id="axes_1" data-motion-panel="">
    <g id="patch_2">
     <path d="M 176.4 202.464 
 L 680.4 202.464 
@@ -133,7 +133,7 @@ L 603.518644 16.416
 L 176.4 16.416 
 " clip-path="url(#p29cdb4a892)" style="fill: none; stroke: #bfb5c6; stroke-width: 1.1; stroke-linecap: square"/>
    </g>
-   <g id="patch_3">
+   <g id="patch_3" data-motion="bar" data-motion-order="0">
     <path d="M 176.4 61.3776 
 L 499.728814 61.3776 
 L 499.728814 33.4704 
@@ -141,7 +141,7 @@ L 176.4 33.4704
 z
 " clip-path="url(#p29cdb4a892)" style="fill: #7854ad"/>
    </g>
-   <g id="patch_4">
+   <g id="patch_4" data-motion="bar" data-motion-order="1">
     <path d="M 176.4 123.3936 
 L 603.518644 123.3936 
 L 603.518644 95.4864 
@@ -149,7 +149,7 @@ L 176.4 95.4864
 z
 " clip-path="url(#p29cdb4a892)" style="fill: #7854ad"/>
    </g>
-   <g id="patch_5">
+   <g id="patch_5" data-motion="bar" data-motion-order="2">
     <path d="M 176.4 185.4096 
 L 289.159322 185.4096 
 L 289.159322 157.5024 
@@ -157,13 +157,13 @@ L 176.4 157.5024
 z
 " clip-path="url(#p29cdb4a892)" style="fill: #7854ad"/>
    </g>
-   <g id="text_10">
+   <g id="text_10" data-motion="value" data-motion-order="0">
     <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #7854ad" x="509.125424" y="51.320484" transform="rotate(-0 509.125424 51.320484)">7.57%</text>
    </g>
-   <g id="text_11">
+   <g id="text_11" data-motion="value" data-motion-order="1">
     <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #7854ad" x="612.915254" y="113.336484" transform="rotate(-0 612.915254 113.336484)">10.00%</text>
    </g>
-   <g id="text_12">
+   <g id="text_12" data-motion="value" data-motion-order="2">
     <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #7854ad" x="298.555932" y="175.352484" transform="rotate(-0 298.555932 175.352484)">2.64%</text>
    </g>
   </g>
