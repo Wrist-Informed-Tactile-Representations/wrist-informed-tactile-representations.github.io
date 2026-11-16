@@ -26,7 +26,7 @@ When public publication is approved, deploy the `main` branch root through Setti
 
 ## Content and provenance
 
-The page follows this order: four-task video cover and authors; Abstract; Insight and teaser; Method; closed-loop Experiments; four Representation Analysis points and reconstruction videos; real-robot comparisons; Citation placeholder.
+The page follows this order: four-task video cover and authors; Abstract; Insight and teaser; Method; closed-loop Experiments; real-robot comparisons; four Representation Analysis points and reconstruction videos; Citation placeholder.
 
 The November 16, 2026 revision follows `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT (compiled 02:50 UTC), its abstract and experiments sources, and the figures referenced by that manuscript. The Paper download is the same PDF. The teaser was rendered from the current PDF because the source PNG was stale. The method figure was also rendered from the manuscript PDF; its scientific content was not edited.
 

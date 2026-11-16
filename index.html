@@ -15,7 +15,7 @@
   <a class="skip-link" href="#abstract">Skip to main content</a>
   <header class="site-header">
     <nav aria-label="Sections">
-      <a href="#abstract">Abstract</a><a href="#insight">Insight</a><a href="#method">Method</a><a href="#results">Experiments</a><a href="#analysis">Analysis</a><a href="#videos">Videos</a><a href="#bibtex">Citation</a>
+      <a href="#abstract">Abstract</a><a href="#insight">Insight</a><a href="#method">Method</a><a href="#results">Experiments</a><a href="#videos">Videos</a><a href="#analysis">Analysis</a><a href="#bibtex">Citation</a>
     </nav>
     <div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
   </header>
@@ -87,6 +87,15 @@
       </tbody></table></div></details>
     </section>
 
+    <section id="videos" class="section container" aria-labelledby="videos-title">
+      <p class="section-label">Real-robot videos</p>
+      <h2 id="videos-title">WiTac and WiTac-NW in action</h2>
+      <p class="section-intro">Compare GR00T N1.7 rollouts across four tasks: successful examples use <strong>WiTac</strong>, and unsuccessful examples use <strong>WiTac-NW</strong>. Select a task to compare the recordings.</p>
+      <div class="gallery-toolbar"><div class="task-filters" role="group" aria-label="Select video task"><button type="button" class="active" data-task="battery" aria-pressed="true" aria-controls="video-gallery">Insert battery</button><button type="button" data-task="usb" aria-pressed="false" aria-controls="video-gallery">Reinsert USB</button><button type="button" data-task="bowl" aria-pressed="false" aria-controls="video-gallery">Wipe bowl</button><button type="button" data-task="cabinet" aria-pressed="false" aria-controls="video-gallery">Open cabinet</button></div></div>
+      <div id="video-gallery" class="video-gallery"></div>
+      <noscript><p>Enable JavaScript to view the task videos.</p></noscript>
+    </section>
+
     <section id="analysis" class="section container" aria-labelledby="analysis-title">
       <p class="section-label">Representation Analysis</p>
       <h2 id="analysis-title">How does wrist context improve tactile representations?</h2>
@@ -131,15 +140,6 @@
           <figcaption><div class="reconstruction-meta"><strong>Cabinet opening</strong><span>3.2 s · 1× speed · 1080p</span></div><p>The cabinet door rotates open while fingertip contact is reconstructed.</p></figcaption>
         </figure>
       </div>
-    </section>
-
-    <section id="videos" class="section container" aria-labelledby="videos-title">
-      <p class="section-label">Real-robot videos</p>
-      <h2 id="videos-title">WiTac and WiTac-NW in action</h2>
-      <p class="section-intro">Compare GR00T N1.7 rollouts across four tasks: successful examples use <strong>WiTac</strong>, and unsuccessful examples use <strong>WiTac-NW</strong>. Select a task to compare the recordings.</p>
-      <div class="gallery-toolbar"><div class="task-filters" role="group" aria-label="Select video task"><button type="button" class="active" data-task="battery" aria-pressed="true" aria-controls="video-gallery">Insert battery</button><button type="button" data-task="usb" aria-pressed="false" aria-controls="video-gallery">Reinsert USB</button><button type="button" data-task="bowl" aria-pressed="false" aria-controls="video-gallery">Wipe bowl</button><button type="button" data-task="cabinet" aria-pressed="false" aria-controls="video-gallery">Open cabinet</button></div></div>
-      <div id="video-gallery" class="video-gallery"></div>
-      <noscript><p>Enable JavaScript to view the task videos.</p></noscript>
     </section>
 
     <section id="bibtex" class="section container citation-section" aria-labelledby="citation-title"><h2 id="citation-title">Citation</h2><p>The BibTeX entry will be added here.</p><pre aria-label="Citation placeholder"><code>% BibTeX coming soon.</code></pre></section>
