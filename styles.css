@@ -58,10 +58,7 @@ h1 { font-size: clamp(32px,3.12vw,44px); line-height: 1.24; font-weight: 720; le
 .hero-segment i { background: #fff; transform: scaleX(var(--progress,0)); transform-origin: left center; }
 .hero-segment.active,.hero-segment.completed { color: #fff; }
 .hero-segment.active>span { font-weight: 600; }
-.background-controls { position: absolute; bottom: 23px; left: max(32px,calc((100% - 1120px)/2)); right: max(32px,calc((100% - 1120px)/2)); display: flex; justify-content: space-between; align-items: center; gap: 18px; font-size: 12px; color: #f4f4f4; }
-.background-controls p { margin: 0; text-shadow: 0 1px 4px #000; }
-.background-controls #hero-task { font-weight: 600; }
-.separator { margin-inline: 8px; }
+.background-controls { position: absolute; bottom: 23px; left: max(32px,calc((100% - 1120px)/2)); right: max(32px,calc((100% - 1120px)/2)); display: flex; justify-content: flex-end; align-items: center; gap: 18px; font-size: 12px; color: #f4f4f4; }
 .background-controls button { background: #1116; border: 1px solid #ffffff80; color: #fff; padding: 7px 14px; min-height: 36px; border-radius: 7px; font-size: 12px; line-height: 1.6; backdrop-filter: blur(3px); }
 .background-controls button:hover { background: #111a; }
 
@@ -260,9 +257,7 @@ tbody th { font-weight: 450; }
   .hero-timeline { left: 20px; right: 20px; bottom: 88px; gap: 10px; }
   .hero-segment { font-size: 11px; line-height: 1.35; padding-top: 12px; }
   .background-controls { left: 20px; right: 20px; bottom: 24px; gap: 12px; font-size: 10px; }
-  .background-controls p { max-width: 235px; }
   .background-controls button { font-size: 11px; padding: 6px 10px; white-space: nowrap; }
-  .separator { margin-inline: 5px; }
   .section { padding-block: 52px; }
   .section-label { font-size: 24px; letter-spacing: -.4px; margin-bottom: 15px; }
   h2 { font-size: 31px; letter-spacing: -.65px; margin-bottom: 20px; }
@@ -341,7 +336,6 @@ tbody th { font-weight: 450; }
   h1 { font-size: 28px; }
   .authors { font-size: 13px; column-gap: 14px; }
   .paper-heading { width: calc(100% - 34px); }
-  .background-controls p { max-width: 195px; }
   .hero-segment { font-size: 10px; }
   h2 { font-size: 29px; }
   .section-label { font-size: 23px; }

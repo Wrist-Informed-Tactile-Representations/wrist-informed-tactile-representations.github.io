@@ -96,7 +96,6 @@ function pauseGallery(exceptVideo = null) {
 // User intent survives visibility changes. Gallery playback suspends the hero
 // until its own play button is explicitly pressed, so it never steals playback.
 const heroVideo = document.querySelector('#hero-video');
-const heroTask = document.querySelector('#hero-task');
 const heroToggle = document.querySelector('#hero-toggle');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let heroWantsPlayback = !reducedMotion.matches;
@@ -140,13 +139,10 @@ function suspendHeroForGallery() {
   syncHeroPlayback();
 }
 
-function updateHeroTask() {
-  if (!heroVideo || !heroTask) return;
-  const tasks = ['Insert battery', 'Reinsert USB', 'Wipe bowl', 'Open cabinet'];
+function updateHeroTimeline() {
+  if (!heroVideo) return;
   // The montage has four consecutive eight-second segments and loops at 32 s.
   const index = Math.min(3, Math.floor((heroVideo.currentTime % 32) / 8));
-  const label = tasks[index] || tasks[0];
-  if (heroTask.textContent !== label) heroTask.textContent = label;
   document.querySelectorAll('.hero-segment').forEach((segment, segmentIndex) => {
     const progress = Math.max(0, Math.min(1, ((heroVideo.currentTime % 32) - segmentIndex * 8) / 8));
     segment.querySelector('i')?.style.setProperty('--progress', String(progress));
@@ -163,8 +159,8 @@ if (heroVideo) {
   heroVideo.playsInline = true;
   const rect = heroVideo.getBoundingClientRect();
   heroVisible = rect.bottom > 0 && rect.top < window.innerHeight;
-  heroVideo.addEventListener('timeupdate', updateHeroTask);
-  heroVideo.addEventListener('loadedmetadata', updateHeroTask);
+  heroVideo.addEventListener('timeupdate', updateHeroTimeline);
+  heroVideo.addEventListener('loadedmetadata', updateHeroTimeline);
   heroVideo.addEventListener('play', () => {
     if (!heroShouldPlay()) {
       heroVideo.pause();
@@ -208,7 +204,7 @@ if (heroVideo) {
   };
   if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', handleMotionPreference);
   else reducedMotion.addListener(handleMotionPreference);
-  updateHeroTask();
+  updateHeroTimeline();
   syncHeroPlayback();
   updateHeroButton();
 }
