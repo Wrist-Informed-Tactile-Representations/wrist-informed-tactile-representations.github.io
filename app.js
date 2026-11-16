@@ -489,3 +489,42 @@ window.addEventListener('scroll', scheduleReadingProgress, {passive: true});
 window.addEventListener('resize', scheduleReadingProgress, {passive: true});
 if ('ResizeObserver' in window) new ResizeObserver(scheduleReadingProgress).observe(document.body);
 updateReadingProgress();
+
+
+// Native disclosures stay independent; these tabs switch only class counts.
+// Without JavaScript both complete evaluation panels remain visible.
+const analysisTabs = [...document.querySelectorAll('[data-analysis-classes]')];
+if (analysisTabs.length) {
+  const tablist = document.querySelector('.analysis-tabs');
+  const panelFor = tab => document.getElementById(tab.getAttribute('aria-controls'));
+  function selectAnalysisTab(selected, focus = false) {
+    analysisTabs.forEach(tab => {
+      const active = tab === selected;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      panelFor(tab).hidden = !active;
+    });
+    if (focus) selected.focus();
+  }
+  if (tablist && analysisTabs.every(panelFor)) {
+    analysisTabs.forEach((tab, index) => {
+      const panel = panelFor(tab);
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tab.id);
+      panel.tabIndex = 0;
+      tab.addEventListener('click', () => selectAnalysisTab(tab));
+      tab.addEventListener('keydown', event => {
+        let next;
+        if (event.key === 'ArrowRight') next = (index + 1) % analysisTabs.length;
+        else if (event.key === 'ArrowLeft') next = (index + analysisTabs.length - 1) % analysisTabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = analysisTabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectAnalysisTab(analysisTabs[next], true);
+      });
+    });
+    tablist.hidden = false;
+    selectAnalysisTab(analysisTabs[0]);
+  }
+}

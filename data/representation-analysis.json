@@ -1,0 +1,96 @@
+{
+  "source": {
+    "remote_pdf": "/mnt/netdata/Team/Foundation-Model/Personal/haotian_he/tac_sharpa/sharpa-latex-template/main.pdf",
+    "pdf_creation_utc": "2026-11-16T02:50:41Z",
+    "pdf_mtime_utc": "2026-11-16T02:50:44.770787812Z",
+    "pdf_bytes": 7280308,
+    "verified_pdf_pages": [9, 15],
+    "notes": "Exact table-source values visually checked against the latest compiled PDF. Supplement Table S4 and Table S5, main Table 3 and Table 4."
+  },
+  "reconstruction": {
+    "table": "S4",
+    "table_source": "contact_reconstruction_content.tex",
+    "metric": "Relative error reduction versus WiTac-NW",
+    "unit": "%",
+    "higher_is_better": true,
+    "n_windows": 9632,
+    "n_episodes": 602,
+    "rows": [
+      {"id": "area", "label": "Contact area", "scope": "All windows", "error_unit": "%", "witac_nw_error": 0.3948, "witac_error": 0.3649, "reduction": 7.57, "display": "7.57%"},
+      {"id": "intensity", "label": "Contact intensity", "scope": "All windows", "error_unit": "0–255", "witac_nw_error": 0.3706, "witac_error": 0.3335, "reduction": 10.00, "display": "10.00%"},
+      {"id": "center", "label": "Contact center", "scope": "Contact-center evaluation", "error_unit": "pixels", "witac_nw_error": 6.5204, "witac_error": 6.3481, "reduction": 2.64, "display": "2.64%"}
+    ],
+    "additional_rows_not_requested_for_chart": [
+      {"id": "area_contact", "scope": "Contact-containing samples", "reduction": 1.30},
+      {"id": "intensity_contact", "scope": "Contact-containing samples", "reduction": 5.53}
+    ]
+  },
+  "joint_readout": {
+    "table": "S5",
+    "table_source": "joint_readout_content.tex",
+    "metric": "Joint task–contact macro-F1",
+    "unit": "score 0–1",
+    "chart_unit": "%",
+    "chart_multiplier": 100,
+    "higher_is_better": true,
+    "models": [
+      {"id": "dino", "label": "DINO"},
+      {"id": "witac_nw", "label": "WiTac-NW"},
+      {"id": "concat", "label": "WiTac-NW + DINO"},
+      {"id": "witac", "label": "WiTac"}
+    ],
+    "panels": [
+      {"classes": 12, "states": ["No contact", "Stable contact", "Changing contact"], "splits": [
+        {"id": "original", "label": "Original split", "n_windows": 3487, "values": {"dino": 0.7140, "witac_nw": 0.7166, "concat": 0.7828, "witac": 0.7931}, "best": "witac"},
+        {"id": "confirmation", "label": "Confirmation split", "n_windows": 3233, "values": {"dino": 0.7322, "witac_nw": 0.7189, "concat": 0.7787, "witac": 0.7761}, "best": "concat"}
+      ]},
+      {"classes": 20, "states": ["No contact", "Stable contact", "Changing contact", "Contact onset", "Contact release"], "splits": [
+        {"id": "original", "label": "Original split", "n_windows": 3555, "values": {"dino": 0.4894, "witac_nw": 0.5600, "concat": 0.5792, "witac": 0.5783}, "best": "concat"},
+        {"id": "confirmation", "label": "Confirmation split", "n_windows": 3288, "values": {"dino": 0.4935, "witac_nw": 0.5578, "concat": 0.5463, "witac": 0.5949}, "best": "witac"}
+      ]}
+    ],
+    "protocol": "Four tasks × 3 or 5 contact states; frozen representations, PCA50, equal-capacity classifier. Original and held-out confirmation splits.",
+    "interpretation_caution": "WiTac is not the highest score in 12-class confirmation or 20-class original: concatenation is higher by 0.26 and 0.09 percentage points, respectively."
+  },
+  "noise_stability": {
+    "table": "3",
+    "table_source": "noise_feature_action.tex",
+    "metric": "Relative reduction versus WiTac-NW",
+    "unit": "%",
+    "higher_is_better": true,
+    "noise": "Gaussian tactile noise, sigma = 3 in 0–255 intensity units; wrist images and robot state unchanged",
+    "columns": [
+      {"id": "feature_drift", "label": "Feature drift", "symbol": "G_D", "definition": "Relative reduction in 1 − cosine(clean feature, noisy feature); shared across both policies for frozen encoder", "display_decimals": 1},
+      {"id": "groot_mae", "label": "GR00T action MAE", "symbol": "G_MAE", "definition": "Relative reduction in noisy-input mean joint-angle error against demonstrated actions", "display_decimals": 2},
+      {"id": "pi05_mae", "label": "π0.5 action MAE", "symbol": "G_MAE", "definition": "Relative reduction in noisy-input mean joint-angle error against demonstrated actions", "display_decimals": 2}
+    ],
+    "rows": [
+      {"id": "battery", "label": "Battery insertion", "values": {"feature_drift": 37.4, "groot_mae": 22.76, "pi05_mae": -0.56}},
+      {"id": "bowl", "label": "Bowl wiping", "values": {"feature_drift": 35.6, "groot_mae": 7.35, "pi05_mae": -1.90}},
+      {"id": "usb", "label": "USB reinsertion", "values": {"feature_drift": 37.0, "groot_mae": 9.18, "pi05_mae": 1.91}},
+      {"id": "cabinet", "label": "Cabinet opening", "values": {"feature_drift": 44.1, "groot_mae": 21.59, "pi05_mae": 2.19}}
+    ],
+    "interpretation_caution": "Positive values improve; negative action values are regressions and must remain visible. These are relative error reductions, not raw drift or joint-angle degrees."
+  },
+  "action_direction": {
+    "table": "4",
+    "table_source": "direction_readout_selected.tex",
+    "metric": "Mean action-direction cosine similarity",
+    "unit": "cosine similarity",
+    "higher_is_better": true,
+    "n_pairs_per_task": 25,
+    "models": [
+      {"id": "dino", "label": "DINO"},
+      {"id": "witac_nw", "label": "WiTac-NW"},
+      {"id": "witac", "label": "WiTac"}
+    ],
+    "rows": [
+      {"id": "battery", "label": "Battery insertion", "values": {"dino": 0.6814, "witac_nw": 0.6794, "witac": 0.7325}},
+      {"id": "usb", "label": "USB reinsertion", "values": {"dino": 0.3281, "witac_nw": 0.3621, "witac": 0.4295}},
+      {"id": "bowl", "label": "Bowl wiping", "values": {"dino": 0.7246, "witac_nw": 0.7696, "witac": 0.7881}},
+      {"id": "cabinet", "label": "Cabinet opening", "values": {"dino": 0.6993, "witac_nw": 0.6669, "witac": 0.7386}}
+    ],
+    "protocol": "Frozen features, equal-capacity PCA16 linear probes fitted on separate training episodes; mean cosine similarity over both observations in 25 contact-matched test pairs per task.",
+    "interpretation_caution": "Dimensionless cosine similarity, not percent success or classification accuracy. All reported values are positive; a 0–1 plotting axis accommodates all observations while the mathematical cosine range is −1 to 1."
+  }
+}

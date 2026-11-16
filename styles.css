@@ -364,3 +364,25 @@ tbody th { font-weight: 450; }
   .paper-link:hover { transform: none; }
   .bar-fill { transform: none; }
 }
+
+
+/* Responsive plots are exported from the paper's numerical data. */
+.analysis-chart { margin: 24px 0 0; padding: 20px; border: 1px solid #ded8e5; border-radius: 10px; background: #fcfbf8; }
+.analysis-chart picture { display: block; }
+.analysis-chart img { display: block; width: 100%; height: auto; }
+.analysis-chart figcaption { margin-top: 16px; color: #68616b; font-size: 14px; line-height: 1.8; }
+.analysis-tabs { display: inline-flex; flex-wrap: wrap; gap: 5px; padding: 4px; margin-top: 25px; background: #e7e0ed; border: 1px solid #d8cfe1; border-radius: 9px; }
+.analysis-tabs[hidden], .joint-panel[hidden] { display: none; }
+.analysis-tabs button { min-height: 43px; padding: 9px 20px; border: 0; border-radius: 6px; background: transparent; color: #62566d; font-size: 15px; font-weight: 600; }
+.analysis-tabs button[aria-selected="true"] { background: #7653a7; color: #fff; box-shadow: 0 1px 3px #3a23452b; }
+.analysis-tabs button:hover:not([aria-selected="true"]) { background: #ffffff80; }
+.joint-panel h4 { margin: 24px 0 0; font-size: 19px; font-weight: 600; color: #4d3b60; }
+.joint-panel .analysis-chart { margin-top: 14px; }
+@media(max-width:700px) {
+  .analysis-copy { padding-left: 0; }
+  .analysis-chart { padding: 10px 8px 14px; margin-top: 20px; }
+  .analysis-chart figcaption { padding-inline: 4px; font-size: 13px; margin-top: 12px; }
+  .analysis-tabs { margin-top: 22px; }
+  .analysis-tabs button { font-size: 14px; padding: 8px 17px; }
+  .joint-panel h4 { font-size: 18px; }
+}
