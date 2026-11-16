@@ -20,15 +20,15 @@ ssh -N -L 8765:127.0.0.1:8765 FM_SH_HHT
 
 ## Repository and publication
 
-This site is maintained in the private `HaotianHehaha/WiTac` repository. Its future project URL is `https://haotianhehaha.github.io/WiTac/`. Repository privacy does not make a published GitHub Pages site private. Leave Pages disabled until public publication is explicitly authorized.
+This site is maintained in the public `Wrist-Informed-Tactile-Representations/wrist-informed-tactile-representations.github.io` repository. Its project URL is `https://wrist-informed-tactile-representations.github.io/`.
 
-When public publication is approved, deploy the `main` branch root through Settings → Pages. The standalone repository has `index.html` at its root and `.nojekyll` for direct static-file serving; no build or Actions workflow is required. If publishing from the manuscript workspace instead, deploy only its `website/` directory.
+GitHub Pages publishes the `main` branch root through Settings → Pages. The standalone repository has `index.html` at its root and `.nojekyll` for direct static-file serving; no custom build or Actions workflow is required. If publishing from the manuscript workspace instead, deploy only its `website/` directory.
 
 ## Content and provenance
 
 The page follows this order: four-task video cover and authors; Abstract; Insight and teaser; Method; closed-loop Experiments; real-robot comparisons; four Representation Analysis points and reconstruction videos; Citation placeholder.
 
-The November 16, 2026 revision follows `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT (compiled 02:50 UTC), its abstract and experiments sources, and the figures referenced by that manuscript. The Paper download is the same PDF. The teaser was rendered from the current PDF because the source PNG was stale. The method figure was also rendered from the manuscript PDF; its scientific content was not edited.
+The November 16, 2026 revision follows `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT, its abstract and experiments sources, and the figures referenced by that manuscript. The Paper download is the same PDF, recompiled with the public project URL on November 16. The teaser was rendered from the manuscript PDF because the source PNG was stale. The method figure was also rendered from the manuscript PDF; its scientific content was not edited.
 
 The four Representation Analysis sections are independently expandable and start closed. Their responsive SVG charts use exact table values recorded in `data/representation-analysis.json`: horizontal bars for the three reconstruction error reductions (Table S4); separate 12/20-class tabs with original and confirmation macro-F1 comparisons (Table S5); a signed, zero-centered heatmap for noise robustness (Table 3); and task-faceted dot plots for action-direction cosine similarity (Table 4). Negative reductions and cases where concatenation exceeds WiTac are preserved. Each chart has desktop and mobile layouts, exact numeric labels, and descriptive alternative text. The class tabs support arrow keys, Home, and End; without JavaScript, both class-count panels remain available.
 
