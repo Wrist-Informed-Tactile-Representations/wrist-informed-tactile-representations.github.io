@@ -324,7 +324,7 @@ function showGalleryLoadError() {
 }
 
 if (gallery) {
-  fetch('data/videos.json?v=revision-20261116')
+  fetch('data/videos.json?v=failure-captions-20261117')
     .then(response => {
       if (!response.ok) throw new Error('Video manifest unavailable');
       return response.json();
