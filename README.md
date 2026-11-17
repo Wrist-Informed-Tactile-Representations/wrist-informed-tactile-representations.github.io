@@ -26,7 +26,7 @@ GitHub Pages publishes the `main` branch root through Settings → Pages. The st
 
 ## Content and provenance
 
-The page follows this order: four-task video cover and authors; Abstract; Insight and teaser; Method; closed-loop Experiments; real-robot comparisons; four Representation Analysis points and reconstruction videos; Citation placeholder.
+The page follows this order: four-task video cover and authors; Abstract; Insight and teaser; Method; closed-loop Experiments; real-robot comparisons; four Representation Analysis points and reconstruction videos; Citation.
 
 The November 16, 2026 revision follows `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT, its abstract and experiments sources, and the figures referenced by that manuscript. The Paper download is the same PDF, recompiled with the public project URL on November 16. The teaser was rendered from the manuscript PDF because the source PNG was stale. The method figure was also rendered from the manuscript PDF; its scientific content was not edited.
 
@@ -36,7 +36,7 @@ The bars and direction points in analyses 1, 2, and 4 animate from zero as each 
 
 Website names consistently use **WiTac-NW**. This variant removes wrist fusion from the contact encoder; the downstream VLA retains its native visual inputs. Success-rate values and rounding follow the paper; the abstract displays literal `%` as requested by the author. Representation analysis distinguishes relative error/drift reductions from macro-F1 scores and direction cosine similarity. Frozen-feature probes are not closed-loop success measurements.
 
-The twelve authors, their order, affiliation markers and equal contribution follow the paper. The hero shows only Paper and BibTeX links. The Citation remains a placeholder; no citation has been invented.
+The twelve authors, their order, affiliation markers and equal contribution follow the paper. The hero shows only Paper and BibTeX links. The Citation contains the author-supplied arXiv reference (2611.21057), verified against its arXiv record and formatted as a compact article entry with all twelve authors. The title protects the capitalization of WiTac.
 
 ## Videos
 
