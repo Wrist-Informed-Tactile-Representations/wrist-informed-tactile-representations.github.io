@@ -26,9 +26,9 @@ GitHub Pages publishes the `main` branch root through Settings → Pages. The st
 
 ## Content and provenance
 
-The page follows this order: four-task video cover and authors; Abstract; Insight and teaser; Method; closed-loop Experiments; real-robot comparisons; four Representation Analysis points and reconstruction videos; Citation.
+The page follows this order: four-task video cover and authors; narrated Video Overview; Abstract; Insight and teaser; Method; closed-loop Experiments; real-robot comparisons; four Representation Analysis points and reconstruction videos; Citation.
 
-The November 16, 2026 revision follows `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT, its abstract and experiments sources, and the figures referenced by that manuscript. The Paper download is the same PDF, recompiled with the public project URL on November 16. The teaser was rendered from the manuscript PDF because the source PNG was stale. The method figure was also rendered from the manuscript PDF; its scientific content was not edited.
+The November 16, 2026 revision follows `tac_sharpa/sharpa-latex-template/main.pdf` on FM_SH_HHT, its abstract and experiments sources, and the figures referenced by that manuscript. The Paper button now opens the arXiv v2 PDF at `https://arxiv.org/pdf/2611.21057v2`. The earlier local PDF is retained as an archive. The teaser was rendered from the manuscript PDF because the source PNG was stale. The method figure was also rendered from the manuscript PDF; its scientific content was not edited.
 
 The four Representation Analysis sections are independently expandable and start closed. Their responsive SVG charts use exact table values recorded in `data/representation-analysis.json`: horizontal bars for the three reconstruction error reductions (Table S4); separate 12/20-class tabs with original and confirmation macro-F1 comparisons (Table S5); a signed, zero-centered heatmap for noise robustness (Table 3); and task-faceted dot plots for action-direction cosine similarity (Table 4). Negative reductions and cases where concatenation exceeds WiTac are preserved. Each chart has desktop and mobile layouts, exact numeric labels, and descriptive alternative text. The class tabs support arrow keys, Home, and End; without JavaScript, both class-count panels remain available.
 
@@ -40,6 +40,7 @@ The twelve authors, their order, affiliation markers and equal contribution foll
 
 ## Videos
 
+- `assets/videos/witac-overview-v8.mp4` is the unchanged 191-second, 1080p English-narrated video supplied as `video_production/v2_20261117/local_cut/exports/WiTac_v8_English_voiced_1080p.mp4`. It appears before the Abstract, with native playback, sound, seeking, and fullscreen controls. It does not autoplay or preload the full video. The poster is extracted from the supplied video's opening. Playing the overview pauses the hero and other clips; starting another video pauses the overview.
 - `data/videos.json` describes eight complete task recordings. The project author confirmed on November 16 that all success samples use **GR00T N1.7 + WiTac** and all failure samples use **GR00T N1.7 + WiTac-NW**. These are selected examples; aggregate results appear in Experiments.
 - `assets/videos/hero-sequence.mp4` is a 32-second, original-speed montage: battery 30–38 s, USB 31–39 s, bowl 38–46 s, cabinet 14–22 s from the success recordings.
 - `data/reconstructions.json` describes the four unchanged 1080p reconstruction clips from `D:/WiTac_video/assets/website_reconstruction_20261115`. Battery, USB, bowl, and cabinet clips are 4, 4, 6, and 3.2 seconds. They show GT/WiTac historical tactile changes `T(t) − T(t−8)` and masked DINO wrist features, not RGB image completion or future tactile prediction.

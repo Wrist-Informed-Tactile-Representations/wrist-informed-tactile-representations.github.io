@@ -96,6 +96,7 @@ function pauseGallery(exceptVideo = null) {
 // User intent survives visibility changes. Gallery playback suspends the hero
 // until its own play button is explicitly pressed, so it never steals playback.
 const heroVideo = document.querySelector('#hero-video');
+const overviewVideo = document.querySelector('#overview-video');
 const heroToggle = document.querySelector('#hero-toggle');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let heroWantsPlayback = !reducedMotion.matches;
@@ -166,6 +167,7 @@ if (heroVideo) {
       heroVideo.pause();
       return;
     }
+    overviewVideo?.pause();
     pauseGallery();
     updateHeroButton();
   });
@@ -208,6 +210,11 @@ if (heroVideo) {
   syncHeroPlayback();
   updateHeroButton();
 }
+
+overviewVideo?.addEventListener('play', () => {
+  suspendHeroForGallery();
+  pauseGallery();
+});
 
 function formatDuration(seconds) {
   const duration = Math.max(0, Math.floor(seconds));
@@ -286,6 +293,7 @@ function renderGallery() {
       source.addEventListener('error', showVideoError);
       video.addEventListener('play', () => {
         suspendHeroForGallery();
+        overviewVideo?.pause();
         pauseGallery(video);
       });
       const policy = document.createElement('p');
@@ -407,6 +415,7 @@ if (reconstructionButtons.length) {
     const video = panel.querySelector('video');
     video.addEventListener('play', () => {
       suspendHeroForGallery();
+      overviewVideo?.pause();
       pauseGallery(video);
     });
     video.addEventListener('error', () => {
